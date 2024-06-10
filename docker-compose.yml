@@ -3,7 +3,7 @@ services:
     image: php:8.3-apache
     container_name: crud_php8_3-prepa
     ports:
-      - "8005:80" # on définit le port pour accéder à l'application (localhost:8001)
+      - "8004:80" # on définit le port pour accéder à l'application (localhost:8001)
     volumes:
       - ./src:/var/www/html # on monte le dossier courant dans le dossier /var/www/html du container
     build:
@@ -32,4 +32,4 @@ services:
       PMA_PASSWORD: root
       UPLOAD_LIMIT: 20M
     ports:
-      - "8085:80" # on définit le port pour accéder à phpmyadmin (localhost:8081)
+      - "8084:80" # on définit le port pour accéder à phpmyadmin (localhost:8081)
