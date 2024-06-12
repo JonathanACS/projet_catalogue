@@ -41,9 +41,7 @@ if ($_POST) {
     if (isset($_POST["id_game"]) && !empty($_POST["id_game"])
         && isset($_POST["title_game"]) && !empty($_POST["title_game"])
         && isset($_POST["text_game"]) && !empty($_POST["text_game"])
-        && isset($_POST["picture_right"]) && !empty($_POST["picture_right"])
         && isset($_POST["picture_right_alt"]) && !empty($_POST["picture_right_alt"])
-        && isset($_POST["picture_left"]) && !empty($_POST["picture_left"])
         && isset($_POST["picture_left_alt"]) && !empty($_POST["picture_left_alt"])
         && isset($_POST["desc_game"]) && !empty($_POST["desc_game"])
         && isset($_POST["trailler"]) && !empty($_POST["trailler"])) {
@@ -52,9 +50,7 @@ if ($_POST) {
         $id_game = strip_tags($_POST["id_game"]);
         $title_game = strip_tags($_POST["title_game"]);
         $text_game = strip_tags($_POST["text_game"]);
-        $picture_right = strip_tags($_POST["picture_right"]);
         $picture_right_alt = strip_tags($_POST["picture_right_alt"]);
-        $picture_left = strip_tags($_POST["picture_left"]);
         $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
         $desc_game = strip_tags($_POST["desc_game"]);
         $trailler = strip_tags($_POST["trailler"]);
@@ -79,6 +75,7 @@ if ($_POST) {
             if (in_array($_FILES['picture_left']['type'], $allowed_types)) {
                 $picture_left = '../img/jeu/' . basename($_FILES['picture_left']['name']);
                 move_uploaded_file($_FILES['picture_left']['tmp_name'], $picture_left);
+                unlink($oldFileName['image_filename']);
             }
         }
 
@@ -120,12 +117,11 @@ if ($_POST) {
 
     } else {
         $_SESSION["erreur"] = "Le formulaire est incomplet";
-        // echo("<pre>");
-        // var_dump($_POST);
-        // echo("</pre>");
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -168,7 +164,7 @@ if ($_POST) {
         </div>
         <div>
             <label for="picture_right">Lien image droit</label>
-            <input type="file" id="picture_right" name="picture_right">
+            <input type="file" id="picture_right" name="picture_right" value="<?=$game['picture_right']?>">
         </div>
         <div>
             <label for="picture_right_alt">ALT image droit</label>
@@ -176,7 +172,7 @@ if ($_POST) {
         </div>
         <div>
             <label for="picture_left">Lien image gauche</label>
-            <input type="file" id="picture_left" name="picture_left">
+            <input type="file" id="picture_left" name="picture_left" value="<?=$game['picture_left']?>">
         </div>
         <div>
             <label for="picture_left_alt">ALT image gauche</label>
