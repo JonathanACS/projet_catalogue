@@ -17,6 +17,7 @@
     <?php
     include_once("./include/navbar.php");
 ?>
+    <a href="../backoffice/backend_game_list.php">backoffice</a>
     <h1>Index</h1>
 
     <h3>A la une</h3>
