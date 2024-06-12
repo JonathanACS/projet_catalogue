@@ -7,6 +7,7 @@
             <ul>
                 <li><a href="#">Catégories</a></li>
                 <li><a href="login.php">Connexion</a></li>
+                <li><a href="../backend/backend_game_list.php">backoffice</a></li>
             </ul>
         </nav>
 
