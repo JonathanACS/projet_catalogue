@@ -1,3 +1,211 @@
-h1 {
-  color: blue;
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* Fichier Navbar */
+
+nav {
+  background-color: #92ccb0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: black;
+  display: flex;
+  height: 52px;
+}
+
+.container-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 82%;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.accueil {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  left: 1%;
+  padding-left: 2%;
+}
+
+/* Fichier Login */
+
+.container-login {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 1%;
+}
+
+.container-login h1 {
+  text-align: center;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 2%;
+  padding-bottom: 3%;
+}
+
+.container-login h2 {
+  height: 20%;
+  color: black;
+  font-size: 30px;
+}
+
+.container-login {
+  background-image: url(../img/login_background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login input {
+  border-radius: 20px;
+  background-color: #84b3bb;
+  border: none;
+  padding: 2%;
+}
+
+.inscription input {
+  border-radius: 20px;
+  background-color: #84b3bb;
+  border: none;
+  padding: 2%;
+}
+
+button {
+  border-radius: 50px;
+  background-color: #8e9cca;
+  border: none;
+  padding: 4%;
+}
+
+button:hover {
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.login a {
+  text-decoration: none;
+}
+
+.inscription a {
+  text-decoration: none;
+}
+
+.container-login a {
+  color: black;
+}
+
+.login {
+  border: solid 1px gray;
+  background-color: #f9f5fb;
+  text-align: center;
+  border-radius: 50px;
+  width: 20%;
+  height: 600px;
+}
+
+.inscription {
+  border: solid 1px gray;
+  background-color: #f9f5fb;
+  text-align: center;
+  border-radius: 50px;
+  width: 20%;
+  height: 600px;
+}
+
+.login h2,
+.login label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inscription h2,
+.inscription label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(15px);
+  border: solid 3px blue;
+  margin-left: 5%;
+}
+
+.inscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(15px);
+  border: solid 3px red;
+  margin-left: 80%;
+  /* display: none; */
+}
+
+.login form {
+  padding-bottom: 5%;
+}
+
+.login {
+  /* border: solid 3px orange;
+   backdrop-filter: blur(10px); 
+  filter: blur(1px); */
+}
+
+/* Fichier Footer */
+
+footer {
+  background-color: #92ccb0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 125px;
 }

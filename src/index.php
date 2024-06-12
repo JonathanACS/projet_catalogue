@@ -15,9 +15,15 @@
 
 <body>
     <?php
-    include_once("./include/header.php");
+    include_once("./include/navbar.php");
 ?>
     <h1>Index</h1>
+
+    <h3>A la une</h3>
+
+    <?php
+    include_once("./include/footer.php");
+?>
 
 </body>
 
