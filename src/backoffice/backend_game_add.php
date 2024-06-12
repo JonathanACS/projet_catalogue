@@ -108,7 +108,9 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice ajouter un jeu</title>
-    <link href="./css/stylee.css" rel="stylesheet">
+    <link href="../css/stylee.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
@@ -116,9 +118,9 @@ if ($_POST) {
     <?php include_once("../include/navbar.php")?>
 
     <h1>ADD GAME</h1>
-    <button><a href="backend_game_add.php">Ajouter un jeu</a></button>
-    <button><a href="backend_game_modif.php">Modifier un jeu</a></button>
-    <button><a href="#" onclick="history.go(-1)">Retour</a></button>
+    <a href="backend_game_add.php">Ajouter un jeu</a>
+    <a href="backend_game_modif.php">Modifier un jeu</a>
+    <a href="#" onclick="history.go(-1)">Retour</a>
 
 
     <form method="post" enctype="multipart/form-data">
@@ -164,8 +166,12 @@ if ($_POST) {
             <label for="switch">Switch</label>
             <input type="checkbox" id="switch" name="switch">
         </div>
-        <button>Envoyer</button>
+        <button type="submit">Envoyer</button>
     </form>
+    <?php include_once("../include/footer.php")?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
