@@ -5,14 +5,16 @@ session_start();
 //connexion a la bdd
 require_once("../include/connect.php");
 
-$sql = "SELECT * FROM `jeux` ORDER BY `id_game` DESC";
+$sql = "SELECT * FROM `jeux` ORDER BY `jeux`.`id_game` DESC ";
 
 $query = $db->prepare($sql);
 
 $query->execute();
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,6 +22,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice liste de jeux</title>
+    <link href="../css/stylee.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,22 +38,28 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             // Réinitialiser le message après l'avoir affiché
             $_SESSION["message"] = ""; 
         }
-    ?>
-    <tbody>
-        <?php 
-            // pour chaque information récupéré dans $result, on affiche une nouvelle ligne dans la table HTML
-                foreach($result as $game){
-            //chaque information récupéré sera identifier en tant que $stage dans le foreach
-            ?>
-        <div class="grid-cols-3">
+        // Afficher le message de succès s'il y en a un
+        if (!empty($_SESSION["erreur"])) {
+            echo "<h2>" . ($_SESSION["erreur"]) . "</h2>";
 
-            <p><?= $game["title_game"] ?></p>
-            <img src="<?= $game["picture_right"] ?>" alt="<?= $game["title_game"] ?>">
-        </div>
-        <?php
-            }
-            ?>
-    </tbody>
+            // Réinitialiser le message après l'avoir affiché
+            $_SESSION["erreur"] = ""; 
+        }
+    ?>
+    <table>
+        <tbody>
+            <?php foreach($result as $game): ?>
+            <tr>
+                <td>
+                    <p><?= $game["title_game"] ?></p>
+                    <img class="picture-game-list-size" src="<?= $game["picture_right"] ?>"
+                        alt="<?= $game["picture_right_alt"] ?>">
+                    <a href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 
 </html>

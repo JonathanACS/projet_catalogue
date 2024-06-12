@@ -5,7 +5,7 @@ session_start();
 // Connexion à la BDD
 require_once("../include/connect.php");
 
-// Fonction pour générer une chaîne de caractères aléatoire
+// Fonction pour générer une chaîne de caractères aléatoire (BY ROBERTO)
 function generateRandomString($length = 20) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -21,13 +21,17 @@ if ($_POST) {
     if (isset($_POST["title_game"]) && !empty($_POST["title_game"])
         && isset($_POST["text_game"]) && !empty($_POST["text_game"])
         && isset($_FILES["picture_right"]) && $_FILES["picture_right"]["error"] == 0
+        && isset($_POST["picture_right_alt"]) && !empty($_POST["picture_right_alt"])
         && isset($_FILES["picture_left"]) && $_FILES["picture_left"]["error"] == 0
+        && isset($_POST["picture_left_alt"]) && !empty($_POST["picture_left_alt"])
         && isset($_POST["desc_game"]) && !empty($_POST["desc_game"])
         && isset($_POST["trailler"]) && !empty($_POST["trailler"])) {
 
         // Nettoyage des données avant de les envoyer
         $title_game = strip_tags($_POST["title_game"]);
         $text_game = strip_tags($_POST["text_game"]);
+        $picture_right_alt = strip_tags($_POST["picture_right_alt"]);
+        $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
         $desc_game = strip_tags($_POST["desc_game"]);
         $trailler = strip_tags($_POST["trailler"]);
         $pc = isset($_POST["pc"]) ? 1 : 0;
@@ -35,11 +39,11 @@ if ($_POST) {
         $xbox = isset($_POST["xbox"]) ? 1 : 0;
         $switch = isset($_POST["switch"]) ? 1 : 0;
 
-        // Gestion des images
+        // Gestion des images (BY ROBERTO)
         $uploadDir = '../img/jeu/';
         $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
 
-        // Gestion de picture_right
+        // Gestion de picture_right (BY ROBERTO)
         $imageFileType = strtolower(pathinfo($_FILES['picture_right']['name'], PATHINFO_EXTENSION));
         if (in_array($imageFileType, $allowedTypes)) {
             $newFileNameRight = generateRandomString(20) . '.' . $imageFileType;
@@ -51,7 +55,7 @@ if ($_POST) {
             exit;
         }
 
-        // Gestion de picture_left
+        // Gestion de picture_left (BY ROBERTO)
         $imageFileType = strtolower(pathinfo($_FILES['picture_left']['name'], PATHINFO_EXTENSION));
         if (in_array($imageFileType, $allowedTypes)) {
             $newFileNameLeft = generateRandomString(20) . '.' . $imageFileType;
@@ -64,8 +68,8 @@ if ($_POST) {
         }
 
         // Préparation de la requête pour envoyer les informations dans la base de données
-        $sql = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_left`, `desc_game`, `trailler`, `pc`,
-        `playstation`, `xbox`, `switch`) VALUES (:title_game, :text_game, :picture_right, :picture_left, :desc_game, :trailler,
+        $sql = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`, `pc`,
+        `playstation`, `xbox`, `switch`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler,
         :pc, :playstation, :xbox, :switch)";
 
         // Préparation de la requête
@@ -75,7 +79,9 @@ if ($_POST) {
         $query->bindValue(':title_game', $title_game, PDO::PARAM_STR);
         $query->bindValue(':text_game', $text_game, PDO::PARAM_STR);
         $query->bindValue(':picture_right', $picture_right, PDO::PARAM_STR);
+        $query->bindValue(':picture_right_alt', $picture_right_alt, PDO::PARAM_STR);
         $query->bindValue(':picture_left', $picture_left, PDO::PARAM_STR);
+        $query->bindValue(':picture_left_alt', $picture_left, PDO::PARAM_STR);
         $query->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
         $query->bindValue(':trailler', $trailler, PDO::PARAM_STR);
         $query->bindValue(':pc', $pc, PDO::PARAM_INT);
@@ -87,8 +93,8 @@ if ($_POST) {
         if ($query->execute()) {
             // Message à afficher
             $_SESSION["message"] = "Jeu ajouté";
-            // Redirection vers la page stage.php
-            header("Location: ../backend/backend_game_list.php");
+            // Redirection vers la page de jeu.php
+            header("Location: ../backoffice/backend_game_list.php");
             exit;
         }
     }
@@ -102,6 +108,8 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice ajouter un jeu</title>
+    <link href="./css/stylee.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -110,6 +118,8 @@ if ($_POST) {
     <h1>ADD GAME</h1>
     <button><a href="backend_game_add.php">Ajouter un jeu</a></button>
     <button><a href="backend_game_modif.php">Modifier un jeu</a></button>
+    <button><a href="#" onclick="history.go(-1)">Retour</a></button>
+
 
     <form method="post" enctype="multipart/form-data">
         <div>
@@ -125,8 +135,16 @@ if ($_POST) {
             <input type="file" id="picture_right" name="picture_right" required>
         </div>
         <div>
+            <label for="picture_right_alt">ALT image droit</label>
+            <input type="text" id="picture_right_alt" name="picture_right_alt" required>
+        </div>
+        <div>
             <label for="picture_left">Lien image gauche</label>
             <input type="file" id="picture_left" name="picture_left" required>
+        </div>
+        <div>
+            <label for="picture_left_alt">ALT image gauche</label>
+            <input type="text" id="picture_left_alt" name="picture_left_alt" required>
         </div>
         <div>
             <label for="desc_game">Description du jeu</label>
