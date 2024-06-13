@@ -9,6 +9,10 @@
   font: inherit;
 }
 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   min-height: 100vh;
 }
@@ -34,20 +38,27 @@ ul {
 
 /* Fichier Navbar */
 
+.container-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
 nav {
-  background-color: #92ccb0;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #a78bfa;
   font-size: 18px;
   color: black;
   display: flex;
   height: 52px;
+  border-bottom: solid 1px;
 }
 
 .container-nav ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 82%;
+  width: 100%;
+  margin-right: 3%;
 }
 
 nav li {
@@ -71,10 +82,23 @@ nav li a {
   padding-left: 2%;
 }
 
+/* Header*/
+
+.header-jeu img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.header-index img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
 /* Fichier Login */
 
 .container-login {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 1%;
 }
@@ -102,29 +126,41 @@ nav li a {
 
 .login input {
   border-radius: 20px;
-  background-color: #84b3bb;
+  background-color: #885bbd;
+  opacity: 0.3;
   border: none;
   padding: 2%;
 }
 
 .inscription input {
   border-radius: 20px;
-  background-color: #84b3bb;
+  background-color: #885bbd;
   border: none;
   padding: 2%;
 }
 
 button {
   border-radius: 50px;
-  background-color: #8e9cca;
+  background-color: gray;
   border: none;
   padding: 4%;
+  transition: all 0.3s;
 }
 
 button:hover {
   border: none;
   cursor: pointer;
   opacity: 0.9;
+}
+
+.button-login button {
+  padding: 2%;
+  font-size: 20px;
+}
+
+.button-inscription button {
+  padding: 3%;
+  font-size: 23px;
 }
 
 .login a {
@@ -146,6 +182,7 @@ button:hover {
   border-radius: 50px;
   width: 20%;
   height: 600px;
+  border: solid 3px black;
 }
 
 .inscription {
@@ -164,6 +201,22 @@ button:hover {
   justify-content: center;
 }
 
+.login label,
+.login input {
+  margin-bottom: 15px;
+}
+
+.login label {
+  margin-bottom: 1%;
+}
+.inscription label {
+  margin-bottom: 1%;
+}
+
+.login h2 {
+  margin-bottom: 5%;
+}
+
 .inscription h2,
 .inscription label {
   display: flex;
@@ -176,8 +229,8 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   backdrop-filter: blur(15px);
-  border: solid 3px blue;
   margin-left: 5%;
+  margin-bottom: 70px;
 }
 
 .inscription {
@@ -185,27 +238,138 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   backdrop-filter: blur(15px);
-  border: solid 3px red;
   margin-left: 80%;
-  /* display: none; */
+  display: none;
 }
 
 .login form {
   padding-bottom: 5%;
 }
 
-.login {
-  /* border: solid 3px orange;
-   backdrop-filter: blur(10px); 
-  filter: blur(1px); */
+.profil-login figure img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-left: 135px;
+  margin-bottom: 35px;
+}
+
+/* Fichie Jeu */
+
+.titre-jeu {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 2%;
+  text-transform: uppercase;
+}
+
+.img-text {
+  display: flex;
+  justify-content: center;
+}
+
+.img-plateforme {
+  display: flex;
+  justify-content: center;
+}
+
+.text p,
+.img-1 img,
+.img-2 img,
+.plateforme p {
+  text-align: center;
+  border: solid 1px gray;
+  background-color: #f9f5fb;
+  text-align: center;
+}
+
+.text p {
+  border-top-left-radius: 20px;
+  width: 300px;
+  height: 390px;
+  margin-top: 3.5%;
+  border: solid 1px gray;
+}
+
+.plateforme p {
+  border-bottom-right-radius: 20px;
+  width: 300px;
+  height: 390px;
+}
+
+.container-jeu {
+  padding-top: 30px;
+}
+
+.description p {
+  border: solid 1px gray;
+  text-align: center;
+  background-color: #8e9cca;
+  width: 50%;
+  height: 450px;
+  border-radius: 10px;
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+.trailler p {
+  border: solid 1px gray;
+  text-align: center;
+  background-color: #8e9cca;
+  width: 80%;
+  height: 390px;
+  border-radius: 10px;
+  margin-left: 10%;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+/* Fichier Index */
+
+.container-index {
+  margin-bottom: 100px;
+}
+
+.titre-index {
+  padding-top: 2%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.img-index img {
+  margin-top: 70px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  border: solid 2px blue;
+}
+
+.img1-index img {
+  margin-top: 200px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  border: solid 2px red;
 }
 
 /* Fichier Footer */
 
 footer {
-  background-color: #92ccb0;
+  background-color: #a78bfa;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 125px;
+}
+
+.logo-footer figure img {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+footer li {
+  justify-content: center;
 }

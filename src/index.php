@@ -14,12 +14,44 @@
 </head>
 
 <body>
-    <?php
+
+    <header class="header-index">
+
+        <?php
     include_once("./include/navbar.php");
 ?>
-    <h1>Index</h1>
 
-    <h3>A la une</h3>
+        <figure>
+            <img src="../img/header-jeu.jpeg" alt="">
+        </figure>
+
+    </header>
+
+    <div class="container-index">
+
+        <div class="titre-index">
+
+            <h1>A la une</h1>
+
+        </div>
+
+        <div class="img-index">
+
+            <figure>
+                <img src="../img/exemple.png" alt="">
+            </figure>
+
+        </div>
+
+        <div class="img1-index">
+
+            <figure>
+                <img src="../img/exemple.png" alt="">
+            </figure>
+
+        </div>
+
+    </div>
 
     <?php
     include_once("./include/footer.php");

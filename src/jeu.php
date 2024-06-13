@@ -9,49 +9,69 @@
 </head>
 
 <body>
-    <?php
+
+    <header class="header-jeu">
+
+        <?php
     include_once("./include/navbar.php");
 ?>
 
+        <figure>
+            <img src="../img/header-jeu.jpeg" alt="">
+        </figure>
+
+    </header>
+
+
+    <h1 class="titre-jeu">Titre du jeu</h1>
+
     <div class="container-jeu">
 
-        <h1>Titre du jeu</h1>
+        <div class="img-text">
 
-        <div class="text">
-            <p>Texte explicatif sur le jeu</p>
+            <div class="text">
+                <p>Texte explicatif sur le jeu</p>
+            </div>
+
+            <div class="img-1">
+                <figure>
+                    <img src="../img/exemple.png" alt="">
+                </figure>
+            </div>
+
         </div>
 
-        <div class="img-1">
-            <figure>
-                <img src="" alt="Image-1">
-            </figure>
+        <div class="img-plateforme">
+
+            <div class="img-2">
+                <figure>
+                    <img src="../img/exemple.png" alt="Image-2">
+                </figure>
+            </div>
+
+            <div class="plateforme">
+                <p>Disponible sur: <br><br> PC <br><br>
+                    PS4/PS5 <br><br>
+                    SWITCH <br><br>
+                    XBOX
+                </p>
+
+            </div>
         </div>
 
-        <div class="img-2">
-            <figure>
-                <img src="" alt="Image-2">
-            </figure>
-        </div>
+        <div class="description">
 
-        <div class="plateforme">
-            <p>Disponible sur:</p>
-            <p>PC</p>
-            <p>PS4/PS5</p>
-            <p>SWITCH</p>
-            <p>XBOX</p>
-        </div>
-
-        <div>
             <p>Déscription du Jeu</p>
+
         </div>
 
-        <div>
-            <a href="#">Trailler</a>
+        <div class="trailler">
+
+            <p>Trailler</p>
+
         </div>
 
-    </div>
-
-    <?php
+        <?php
     include_once("./include/footer.php");
 ?>
 
