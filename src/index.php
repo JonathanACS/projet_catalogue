@@ -20,6 +20,7 @@
         <?php
     include_once("./include/navbar.php");
 ?>
+        <a href="../backoffice/backend_game_list.php">backoffice</a>
 
         <figure>
             <img src="../img/header-jeu.jpeg" alt="">

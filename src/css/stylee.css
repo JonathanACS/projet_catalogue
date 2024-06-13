@@ -373,3 +373,8 @@ footer {
 footer li {
   justify-content: center;
 }
+.picture-game-list-size {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
