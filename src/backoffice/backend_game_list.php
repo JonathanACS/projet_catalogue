@@ -27,52 +27,53 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body class="color--bs-secondary-color">
+<body>
 
     <?php include_once("../include/navbar.php")?>
 
-    <h1 class="text-center">GAME LISTE</h1>
+    <section class="p-2 text-black">
+        <h1 class="text-center">Liste des jeux</h1>
+        <div class="text-center">
+            <a class="btn btn-secondary p-2" href="backend_game_add.php">Ajouter un jeux</a>
+            <a class="btn btn-secondary p-2" href="#" onclick="history.go(-1)">Retour</a>
+        </div>
 
-    <div class="text-center">
-        <a class="btn btn-secondary p-2" href="backend_game_add.php">Ajouter un jeux</a>
-        <a class="btn btn-secondary p-2" href="../index.php">Accueil</a>
-    </div>
+        <?php
+            if (!empty($_SESSION["message"])) {
+                echo "<h2 class='text-success'>" . ($_SESSION["message"]) . "</h2>";
+                $_SESSION["message"] = ""; 
+            }
+            if (!empty($_SESSION["erreur"])) {
+                echo "<h2 class='text-danger'>" . ($_SESSION["erreur"]) . "</h2>";
+                $_SESSION["erreur"] = ""; 
+            }
+        ?>
 
-    <?php
-
-        // Afficher le message de succès s'il y en a un
-        if (!empty($_SESSION["message"])) {
-            echo "<h2>" . ($_SESSION["message"]) . "</h2>";
-
-            // Réinitialiser le message après l'avoir affiché
-            $_SESSION["message"] = ""; 
-        }
-
-        // Afficher le message de succès s'il y en a un
-        if (!empty($_SESSION["erreur"])) {
-            echo "<h2>" . ($_SESSION["erreur"]) . "</h2>";
-
-            // Réinitialiser le message après l'avoir affiché
-            $_SESSION["erreur"] = ""; 
-        }
-    ?>
-    <div class="container text-center">
-
+        <!-- Idea blur effect on hover (or focus) when we put the mouse on a game then show "modif" and "delete"-->
         <div class="row">
 
             <?php foreach($result as $game): ?>
-            <div class="col-md-auto ">
-                <p><?= $game["title_game"] ?></p>
-                <img class="picture-game-list-size" src="<?= $game["picture_right"] ?>"
+
+            <div class="col-md-auto mx-auto">
+                <p class="text-center"><?= $game["title_game"] ?></p>
+                <img class="picture-game-list-size mx-auto" src="<?= $game["picture_right"] ?>"
                     alt="<?= $game["picture_right_alt"] ?>">
-                <a href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier</a>
+                <div class="text-center">
+                    <a class="btn btn-secondary p-2" href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier le
+                        jeu <?= $game["title_game"] ?></a>
+                    <a class="btn btn-secondary p-2"
+                        href="backend_game_delete.php?id=<?=$game["id_game"]?>">Supprimer</a>
+
+                </div>
             </div>
 
             <?php endforeach; ?>
+
         </div>
 
-    </div>
-    <?php include_once("../include/footer.php")?>
+        <?php include_once("../include/footer.php")?>
+
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
