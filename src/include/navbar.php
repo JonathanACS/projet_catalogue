@@ -1,24 +1,27 @@
-    <div class="container-nav">
+          <nav>
 
-        <nav>
-            <div class="accueil">
-                <a href="../index.php">Accueil</a>
-            </div>
+              <div class="container-nav">
 
-            <ul>
-                <li>
-                    <a href="">Catégories</a>
-                    <ul>
-                        <li><a href="">PC</a></li>
-                        <li><a href="">PS4/PS5</a></li>
-                        <li><a href="">XBOX</a></li>
-                        <li><a href="">SWITCH</a></li>
-                    </ul>
-                </li>
-                <li><a href="../login.php">Connexion</a></li>
-                <li><a href="../backoffice/backend_game_list.php">backoffice</a></li>
-            </ul>
+                  <ul>
+                      <li><a href="index.php">Accueil</a></li>
 
-        </nav>
+                      <div class="droite">
+                          <li class="has-sous-nav">
+                              <a href="">Catégories</a>
+                              <ul class="sous-nav">
+                                  <li><a href="categories.php">PC</a></li>
+                                  <li><a href="categories.php">PS4/PS5</a></li>
+                                  <li><a href="categories.php">XBOX</a></li>
+                                  <li><a href="categories.php">SWITCH</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="../login.php">Connexion</a></li>
+                          <li><a href="../backoffice/backend_game_list.php">Backoffice</a></li>
+                  </ul>
+              </div>
 
-    </div>
+              <!-- <img src="../img/menu-burger.png" alt="img-burger" class="menu-burger"> -->
+
+              </div>
+
+          </nav>

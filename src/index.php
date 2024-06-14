@@ -20,7 +20,6 @@
         <?php
     include_once("./include/navbar.php");
 ?>
-        <a href="../backoffice/backend_game_list.php">backoffice</a>
 
         <figure>
             <img src="../img/header-jeu.jpeg" alt="">
@@ -44,7 +43,28 @@
 
         </div>
 
-        <div class="img1-index">
+        <div class="img-1-index">
+
+            <figure>
+                <img src="../img/exemple.png" alt="">
+            </figure>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-index-1">
+
+        <div class="img-index-1">
+
+            <figure>
+                <img src="../img/exemple.png" alt="">
+            </figure>
+
+        </div>
+
+        <div class="img-2-index">
 
             <figure>
                 <img src="../img/exemple.png" alt="">

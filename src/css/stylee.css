@@ -10,7 +10,7 @@
 }
 
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -39,47 +39,52 @@ ul {
 /* Fichier Navbar */
 
 .container-nav {
+  background-color: #a78bfa;
+  font-weight: 500;
+  font-size: 23px;
   position: sticky;
   top: 0;
   left: 0;
-}
-
-nav {
-  background-color: #a78bfa;
-  font-size: 18px;
-  color: black;
-  display: flex;
-  height: 52px;
   border-bottom: solid 1px;
 }
 
-.container-nav ul {
+.container-nav > ul {
+  display: flex;
+}
+
+.container-nav li a {
+  display: block;
+  padding: 20px;
+}
+
+.droite {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 100%;
-  margin-right: 3%;
+  margin-left: auto;
+  gap: 40px;
 }
 
-nav li {
-  list-style-type: none;
+.sous-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  background-color: #a78bfa;
+  width: max-content;
+  text-align: center;
 }
 
-nav li a {
+.sous-nav li a:hover {
+  background: #f2f2f2;
+}
+
+.has-sous-nav {
+  position: relative;
+}
+
+.has-sous-nav:hover .sous-nav {
   display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.accueil {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  left: 1%;
-  padding-left: 2%;
 }
 
 /* Header*/
@@ -176,13 +181,11 @@ button:hover {
 }
 
 .login {
-  border: solid 1px gray;
   background-color: #f9f5fb;
   text-align: center;
   border-radius: 50px;
   width: 20%;
   height: 600px;
-  border: solid 3px black;
 }
 
 .inscription {
@@ -226,6 +229,7 @@ button:hover {
 
 .login {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   backdrop-filter: blur(15px);
@@ -250,7 +254,7 @@ button:hover {
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  margin-left: 135px;
+  margin-left: 110px;
   margin-bottom: 35px;
 }
 
@@ -266,11 +270,13 @@ button:hover {
 
 .img-text {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .img-plateforme {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -329,6 +335,12 @@ button:hover {
 
 .container-index {
   margin-bottom: 100px;
+  background-color: #885bbd;
+}
+
+.container-index-1 {
+  margin-bottom: 100px;
+  background-color: #8e9cca;
 }
 
 .titre-index {
@@ -338,7 +350,8 @@ button:hover {
   font-weight: bold;
 }
 
-.img-index img {
+.img-index img,
+.img-index-1 img {
   margin-top: 70px;
   margin-left: 20%;
   display: flex;
@@ -346,7 +359,45 @@ button:hover {
   border: solid 2px blue;
 }
 
-.img1-index img {
+.img-1-index img,
+.img-2-index img {
+  margin-top: 200px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  border: solid 2px red;
+}
+
+/* Fichier Catégories */
+
+.container-categories {
+  margin-bottom: 100px;
+  background-color: #885bbd;
+}
+
+.container-categories-1 {
+  margin-bottom: 100px;
+  background-color: #8e9cca;
+}
+
+.titre-categories {
+  padding-top: 2%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.img-categories img,
+.img-categories-1 img {
+  margin-top: 70px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  border: solid 2px blue;
+}
+
+.img-1-categories img,
+.img-2-categories img {
   margin-top: 200px;
   margin-left: 20%;
   display: flex;
@@ -373,8 +424,85 @@ footer {
 footer li {
   justify-content: center;
 }
+
 .picture-game-list-size {
   width: 300px;
   height: 400px;
   object-fit: cover;
+}
+
+/* Menu burger */
+
+/* @media screen and (max-width: 767.98px) {
+  .nav-lien {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 65px);
+    position: absolute;
+    top: 65px;
+    right: 0;
+    border: solid 1px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-lien > a::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 1px;
+    border: solid 1px;
+  }
+
+  .nav-lien:hover > a::after {
+    width: 100%;
+    border: solid 1px;
+    transition: width 0.5s;
+  }
+} */
+
+/* Responsive Fichier Jeu */
+
+@media (min-width: 481px) and (max-width: 1570px) {
+  /* Jeu */
+
+  .img-2 {
+    display: none;
+  }
+
+  .text {
+    margin-bottom: 20px;
+  }
+
+  .img-1 img {
+    margin-top: 30px;
+  }
+
+  .plateforme {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  /* Login */
+
+  .login {
+    /* margin-top: 50px;
+    margin-left: 20%; */
+    width: 20%;
+    border: solid 3px red;
+  }
+
+  .profil-login img {
+    padding: 0.5%;
+  }
+
+  /* Footer */
+
+  footer li {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }
