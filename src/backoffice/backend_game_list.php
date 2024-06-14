@@ -1,4 +1,5 @@
 <?php
+
 //lancement de la session
 session_start();
 
@@ -47,6 +48,10 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo "<h2 class='text-danger'>" . ($_SESSION["erreur"]) . "</h2>";
                 $_SESSION["erreur"] = ""; 
             }
+            if (!empty($_SESSION["succes"])) {
+                echo "<h2 class='text-danger'>" . ($_SESSION["succes"]) . "</h2>";
+                $_SESSION["succes"] = ""; 
+            }
         ?>
 
         <!-- Idea blur effect on hover (or focus) when we put the mouse on a game then show "modif" and "delete"-->
@@ -56,7 +61,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="col-md-auto mx-auto">
                 <p class="text-center"><?= $game["title_game"] ?></p>
-                <img class="picture-game-list-size mx-auto" src="<?= $game["picture_right"] ?>"
+                <img class="picture-game-list-size" src="<?= $game["picture_right"] ?>"
                     alt="<?= $game["picture_right_alt"] ?>">
                 <div class="text-center">
                     <a class="btn btn-secondary p-2" href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier le
