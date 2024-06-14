@@ -69,8 +69,7 @@ if ($_POST) {
             }
 
             // Insertion dans la table `jeux`
-            $sqlJeux = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler)"
-            
+            $sqlJeux = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler)";
             $queryJeux = $db->prepare($sqlJeux);
             $queryJeux->bindValue(':title_game', $title_game, PDO::PARAM_STR);
             $queryJeux->bindValue(':text_game', $text_game, PDO::PARAM_STR);
@@ -120,6 +119,7 @@ if ($_POST) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
