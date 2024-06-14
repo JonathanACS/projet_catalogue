@@ -15,7 +15,7 @@
     <div class="logo-footer">
 
         <figure>
-            <img src="../img/manette.png" alt="">
+            <img src="../img/manette.png" alt="img-footer">
         </figure>
 
     </div>

@@ -1,0 +1,260 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* Fichie Jeu */
+
+.titre-jeu {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 2%;
+  text-transform: uppercase;
+}
+
+.img-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img-plateforme {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.text p,
+.img-1 img,
+.img-2 img,
+.plateforme p {
+  text-align: center;
+  border: solid 1px gray;
+  background-color: #f9f5fb;
+  text-align: center;
+}
+
+.text p {
+  border-top-left-radius: 20px;
+  width: 300px;
+  height: 390px;
+  margin-top: 3.5%;
+  border: solid 1px gray;
+}
+
+.plateforme p {
+  border-bottom-right-radius: 20px;
+  width: 300px;
+  height: 390px;
+}
+
+.container-jeu {
+  padding-top: 30px;
+}
+
+.description p {
+  border: solid 1px gray;
+  text-align: center;
+  background-color: #8e9cca;
+  width: 50%;
+  height: 450px;
+  border-radius: 10px;
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+.trailler p {
+  border: solid 1px gray;
+  text-align: center;
+  background-color: #8e9cca;
+  width: 80%;
+  height: 390px;
+  border-radius: 10px;
+  margin-left: 10%;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+/* Responsive Fichier Jeu */
+
+@media (min-width: 604px) and (max-width: 1571px) {
+  .text p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .plateforme p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .description p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trailler p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-accueil {
+    margin-left: 90px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 603px) {
+  .img-2 {
+    display: none;
+  }
+
+  .text p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .img-1 img {
+    margin-top: 50px;
+  }
+
+  .plateforme p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .plateforme {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .description p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .trailler p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .trailler {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .mobile-accueil {
+    margin-left: 90px;
+  }
+
+  /* .logo-footer {
+    display: none;
+  }
+
+  .mobile-footer {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  } */
+}
+
+@media (max-width: 349px) {
+  .img-2 img {
+    display: none;
+  }
+
+  .text p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .plateforme p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .description p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .trailler p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
