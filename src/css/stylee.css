@@ -28,7 +28,7 @@ video {
 a {
   list-style-type: none;
   text-decoration: none;
-  color: black;
+  color: #333333;
 }
 
 ul {
@@ -39,10 +39,10 @@ ul {
 /* Fichier Navbar */
 
 .container-nav {
-  background-color: #a78bfa;
+  background-color: #8d958f;
   font-weight: 500;
   font-size: 23px;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   left: 0;
   border-bottom: solid 1px;

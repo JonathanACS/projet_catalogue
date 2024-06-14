@@ -85,9 +85,10 @@ if ($_POST) {
             $id_game = $db->lastInsertId();
 
             // Insertion dans la table `plateforme`
-            $sqlPlateforme = "INSERT INTO `plateforme` (`id_game`, `pc`, `playstation`, `xbox`, `switch`) VALUES (:id_game, :pc, :playstation, :xbox, :switch)";
+            $sqlPlateforme = "INSERT INTO `plateforme` (`id_game`, `title_game`, `pc`, `playstation`, `xbox`, `switch`) VALUES (:id_game, :title_game, :pc, :playstation, :xbox, :switch)";
             $queryPlateforme = $db->prepare($sqlPlateforme);
             $queryPlateforme->bindValue(':id_game', $id_game, PDO::PARAM_INT);
+            $queryPlateforme->bindValue(':title_game', $title_game, PDO::PARAM_STR);
             $queryPlateforme->bindValue(':pc', $pc, PDO::PARAM_INT);
             $queryPlateforme->bindValue(':playstation', $playstation, PDO::PARAM_INT);
             $queryPlateforme->bindValue(':xbox', $xbox, PDO::PARAM_INT);

@@ -1,7 +1,18 @@
 <?php
-    //on démare la session, la session sert à envoyer des message d'une page à l'autre
-    session_start();
-    
+//lancement de la session
+session_start();
+
+//connexion a la bdd
+require_once("include/connect.php");
+
+$sql = "SELECT * FROM `jeux` ORDER BY `jeux`.`id_game` DESC ";
+
+$query = $db->prepare($sql);
+
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,55 +37,18 @@
 
     </header>
 
-    <div class="container-index">
+    <?php foreach($result as $game): ?>
 
-        <div class="titre-index">
-            <h1>A la une</h1>
-            <a href="inscription.php">inscription</a>
-        </div>
-
-        <div class="img-index">
-
-            <figure>
-                <img src="../img/exemple.png" alt="">
-            </figure>
-
-        </div>
-
-        <div class="img-1-index">
-
-            <figure>
-                <img src="../img/exemple.png" alt="">
-            </figure>
-
-        </div>
-
+    <div class="col-md-auto mx-auto">
+        <p class="text-center"><?= $game["title_game"] ?></p>
+        <img class="picture-game-list-size mx-auto" src="<?= $game["picture_right"] ?>"
+            alt="<?= $game["picture_right_alt"] ?>">
     </div>
 
-
-    <div class="container-index-1">
-
-        <div class="img-index-1">
-
-            <figure>
-                <img src="../img/exemple.png" alt="">
-            </figure>
-
-        </div>
-
-        <div class="img-2-index">
-
-            <figure>
-                <img src="../img/exemple.png" alt="">
-            </figure>
-
-        </div>
-
-    </div>
-
+    <?php endforeach; ?>
     <?php
-    include_once("./include/footer.php");
-?>
+        include_once("./include/footer.php");
+    ?>
 
 </body>
 
