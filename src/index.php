@@ -20,7 +20,6 @@
         <?php
     include_once("./include/navbar.php");
 ?>
-
         <figure>
             <img src="../img/header-jeu.jpeg" alt="">
         </figure>
@@ -30,9 +29,8 @@
     <div class="container-index">
 
         <div class="titre-index">
-
             <h1>A la une</h1>
-
+            <a href="inscription.php">inscription</a>
         </div>
 
         <div class="img-index">

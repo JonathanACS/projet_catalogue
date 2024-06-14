@@ -81,7 +81,7 @@ if ($_POST) {
         $query->bindValue(':picture_right', $picture_right, PDO::PARAM_STR);
         $query->bindValue(':picture_right_alt', $picture_right_alt, PDO::PARAM_STR);
         $query->bindValue(':picture_left', $picture_left, PDO::PARAM_STR);
-        $query->bindValue(':picture_left_alt', $picture_left, PDO::PARAM_STR);
+        $query->bindValue(':picture_left_alt', $picture_left_alt, PDO::PARAM_STR);
         $query->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
         $query->bindValue(':trailler', $trailler, PDO::PARAM_STR);
         $query->bindValue(':pc', $pc, PDO::PARAM_INT);
@@ -116,58 +116,59 @@ if ($_POST) {
 
 <body>
     <?php include_once("../include/navbar.php")?>
-
-    <h1>ADD GAME</h1>
-    <a href="backend_game_add.php">Ajouter un jeu</a>
-    <a href="backend_game_modif.php">Modifier un jeu</a>
-    <a href="#" onclick="history.go(-1)">Retour</a>
-
-
-    <form method="post" enctype="multipart/form-data">
-        <div>
-            <label for="title_game">Titre du jeu</label>
-            <input type="text" id="title_game" name="title_game" required>
+    <section class="p-3 mb-2 bg-gradient-secondary text-black">
+        <div class="text-center">
+            <h1>Ajouter un jeu</h1>
+            <a class="btn btn-secondary p-2" href="backend_game_list.php">Liste de jeu</a>
+            <a class="btn btn-secondary p-10" href="#" onclick="history.go(-1)">Retour</a>
         </div>
-        <div>
-            <label for="text_game">Description du jeu</label>
-            <textarea id="text_game" name="text_game" required></textarea>
+        <div class="d-flex justify-content-center">
+            <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="title_game">Titre du jeu</label>
+                        <input class="form-control" type="text" id="title_game" name="title_game" required>
+                        <label class="form-label" for="trailler">Lien du trailler</label>
+                        <input class="form-control" type="text" id="trailler" name="trailler" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="picture_right">Lien image droit</label>
+                        <input class="form-control" type="file" id="picture_right" name="picture_right" required>
+                        <label class="form-label" for="picture_right_alt">ALT image droit</label>
+                        <input class="form-control" type="text" id="picture_right_alt" name="picture_right_alt"
+                            required>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="picture_left">Lien image gauche</label>
+                    <input class="form-control" type="file" id="picture_left" name="picture_left" required>
+                    <label class="form-label" for="picture_left_alt">ALT image gauche</label>
+                    <input class="form-control" type="text" id="picture_left_alt" name="picture_left_alt" required>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="desc_game">Description du jeu</label>
+                    <textarea class="form-control" id="desc_game" name="desc_game" required></textarea>
+                    <label class="form-label" for="text_game">Description du jeu</label>
+                    <textarea class="form-control" id="text_game" name="text_game" required></textarea>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="pc">PC</label>
+                    <input class="form-check-input" type="checkbox" id="pc" name="pc">
+                    <label class="form-label" for="playstation">PlayStation</label>
+                    <input class="form-check-input" type="checkbox" id="playstation" name="playstation">
+                    <label class="form-label" for="xbox">Xbox</label>
+                    <input class="form-check-input" type="checkbox" id="xbox" name="xbox">
+                    <label class="form-label" for="switch">Switch</label>
+                    <input class="form-check-input" type="checkbox" id="switch" name="switch">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-secondary p-10">Envoyer</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="picture_right">Lien image droit</label>
-            <input type="file" id="picture_right" name="picture_right" required>
-        </div>
-        <div>
-            <label for="picture_right_alt">ALT image droit</label>
-            <input type="text" id="picture_right_alt" name="picture_right_alt" required>
-        </div>
-        <div>
-            <label for="picture_left">Lien image gauche</label>
-            <input type="file" id="picture_left" name="picture_left" required>
-        </div>
-        <div>
-            <label for="picture_left_alt">ALT image gauche</label>
-            <input type="text" id="picture_left_alt" name="picture_left_alt" required>
-        </div>
-        <div>
-            <label for="desc_game">Description du jeu</label>
-            <textarea id="desc_game" name="desc_game" required></textarea>
-        </div>
-        <div>
-            <label for="trailler">Lien du trailler</label>
-            <input type="text" id="trailler" name="trailler" required>
-        </div>
-        <div>
-            <label for="pc">PC</label>
-            <input type="checkbox" id="pc" name="pc">
-            <label for="playstation">PlayStation</label>
-            <input type="checkbox" id="playstation" name="playstation">
-            <label for="xbox">Xbox</label>
-            <input type="checkbox" id="xbox" name="xbox">
-            <label for="switch">Switch</label>
-            <input type="checkbox" id="switch" name="switch">
-        </div>
-        <button type="submit">Envoyer</button>
-    </form>
+    </section>
     <?php include_once("../include/footer.php")?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
