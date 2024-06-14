@@ -5,7 +5,7 @@ session_start();
 // Connexion à la BDD
 require_once("../include/connect.php");
 
-// Fonction pour générer une chaîne de caractères aléatoire (BY ROBERTO)
+// Fonction pour générer une chaîne de caractères aléatoire
 function generateRandomString($length = 20) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -25,81 +25,102 @@ if ($_POST) {
         && isset($_FILES["picture_left"]) && $_FILES["picture_left"]["error"] == 0
         && isset($_POST["picture_left_alt"]) && !empty($_POST["picture_left_alt"])
         && isset($_POST["desc_game"]) && !empty($_POST["desc_game"])
-        && isset($_POST["trailler"]) && !empty($_POST["trailler"])) {
+        && isset($_POST["trailler"]) && !empty($_POST["trailler"])
+        && (isset($_POST["pc"]) || isset($_POST["playstation"]) || isset($_POST["xbox"]) || isset($_POST["switch"]))) {
 
-        // Nettoyage des données avant de les envoyer
-        $title_game = strip_tags($_POST["title_game"]);
-        $text_game = strip_tags($_POST["text_game"]);
-        $picture_right_alt = strip_tags($_POST["picture_right_alt"]);
-        $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
-        $desc_game = strip_tags($_POST["desc_game"]);
-        $trailler = strip_tags($_POST["trailler"]);
-        $pc = isset($_POST["pc"]) ? 1 : 0;
-        $playstation = isset($_POST["playstation"]) ? 1 : 0;
-        $xbox = isset($_POST["xbox"]) ? 1 : 0;
-        $switch = isset($_POST["switch"]) ? 1 : 0;
+        // Début d'une transaction
+        $db->beginTransaction();
 
-        // Gestion des images (BY ROBERTO)
-        $uploadDir = '../img/jeu/';
-        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+        try {
+            // Nettoyage des données
+            $title_game = strip_tags($_POST["title_game"]);
+            $text_game = strip_tags($_POST["text_game"]);
+            $picture_right_alt = strip_tags($_POST["picture_right_alt"]);
+            $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
+            $desc_game = strip_tags($_POST["desc_game"]);
+            $trailler = strip_tags($_POST["trailler"]);
+            $pc = isset($_POST["pc"]) ? 1 : 0;
+            $playstation = isset($_POST["playstation"]) ? 1 : 0;
+            $xbox = isset($_POST["xbox"]) ? 1 : 0;
+            $switch = isset($_POST["switch"]) ? 1 : 0;
 
-        // Gestion de picture_right (BY ROBERTO)
-        $imageFileType = strtolower(pathinfo($_FILES['picture_right']['name'], PATHINFO_EXTENSION));
-        if (in_array($imageFileType, $allowedTypes)) {
-            $newFileNameRight = generateRandomString(20) . '.' . $imageFileType;
-            $picture_right = $uploadDir . $newFileNameRight;
-            move_uploaded_file($_FILES['picture_right']['tmp_name'], $picture_right);
-        } else {
-            $_SESSION["message"] = "Format de l'image droite non autorisé.";
-            header("Location: ../backend/backend_game_add.php");
-            exit;
-        }
+            // Gestion des images
+            $uploadDir = '../img/jeu/';
+            $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
 
-        // Gestion de picture_left (BY ROBERTO)
-        $imageFileType = strtolower(pathinfo($_FILES['picture_left']['name'], PATHINFO_EXTENSION));
-        if (in_array($imageFileType, $allowedTypes)) {
-            $newFileNameLeft = generateRandomString(20) . '.' . $imageFileType;
-            $picture_left = $uploadDir . $newFileNameLeft;
-            move_uploaded_file($_FILES['picture_left']['tmp_name'], $picture_left);
-        } else {
-            $_SESSION["message"] = "Format de l'image gauche non autorisé.";
-            header("Location: ../backend/backend_game_add.php");
-            exit;
-        }
+            // Gestion de picture_right
+            $imageFileType = strtolower(pathinfo($_FILES['picture_right']['name'], PATHINFO_EXTENSION));
+            if (in_array($imageFileType, $allowedTypes)) {
+                $newFileNameRight = generateRandomString(20) . '.' . $imageFileType;
+                $picture_right = $uploadDir . $newFileNameRight;
+                move_uploaded_file($_FILES['picture_right']['tmp_name'], $picture_right);
+            } else {
+                throw new Exception("Format de l'image droite non autorisé.");
+            }
 
-        // Préparation de la requête pour envoyer les informations dans la base de données
-        $sql = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`, `pc`,
-        `playstation`, `xbox`, `switch`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler,
-        :pc, :playstation, :xbox, :switch)";
+            // Gestion de picture_left
+            $imageFileType = strtolower(pathinfo($_FILES['picture_left']['name'], PATHINFO_EXTENSION));
+            if (in_array($imageFileType, $allowedTypes)) {
+                $newFileNameLeft = generateRandomString(20) . '.' . $imageFileType;
+                $picture_left = $uploadDir . $newFileNameLeft;
+                move_uploaded_file($_FILES['picture_left']['tmp_name'], $picture_left);
+            } else {
+                throw new Exception("Format de l'image gauche non autorisé.");
+            }
 
-        // Préparation de la requête
-        $query = $db->prepare($sql);
+            // Insertion dans la table `jeux`
+            $sqlJeux = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler)"
+            
+            $queryJeux = $db->prepare($sqlJeux);
+            $queryJeux->bindValue(':title_game', $title_game, PDO::PARAM_STR);
+            $queryJeux->bindValue(':text_game', $text_game, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_right', $picture_right, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_right_alt', $picture_right_alt, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_left', $picture_left, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_left_alt', $picture_left_alt, PDO::PARAM_STR);
+            $queryJeux->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
+            $queryJeux->bindValue(':trailler', $trailler, PDO::PARAM_STR);
+            $queryJeux->execute();
 
-        // Attribution des valeurs
-        $query->bindValue(':title_game', $title_game, PDO::PARAM_STR);
-        $query->bindValue(':text_game', $text_game, PDO::PARAM_STR);
-        $query->bindValue(':picture_right', $picture_right, PDO::PARAM_STR);
-        $query->bindValue(':picture_right_alt', $picture_right_alt, PDO::PARAM_STR);
-        $query->bindValue(':picture_left', $picture_left, PDO::PARAM_STR);
-        $query->bindValue(':picture_left_alt', $picture_left_alt, PDO::PARAM_STR);
-        $query->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
-        $query->bindValue(':trailler', $trailler, PDO::PARAM_STR);
-        $query->bindValue(':pc', $pc, PDO::PARAM_INT);
-        $query->bindValue(':playstation', $playstation, PDO::PARAM_INT);
-        $query->bindValue(':xbox', $xbox, PDO::PARAM_INT);
-        $query->bindValue(':switch', $switch, PDO::PARAM_INT);
+            // Récupération de l'ID du jeu inséré
+            $id_game = $db->lastInsertId();
 
-        // Exécution de la requête
-        if ($query->execute()) {
+            // Insertion dans la table `plateforme`
+            $sqlPlateforme = "INSERT INTO `plateforme` (`id_game`, `pc`, `playstation`, `xbox`, `switch`) VALUES (:id_game, :pc, :playstation, :xbox, :switch)";
+            $queryPlateforme = $db->prepare($sqlPlateforme);
+            $queryPlateforme->bindValue(':id_game', $id_game, PDO::PARAM_INT);
+            $queryPlateforme->bindValue(':pc', $pc, PDO::PARAM_INT);
+            $queryPlateforme->bindValue(':playstation', $playstation, PDO::PARAM_INT);
+            $queryPlateforme->bindValue(':xbox', $xbox, PDO::PARAM_INT);
+            $queryPlateforme->bindValue(':switch', $switch, PDO::PARAM_INT);
+            $queryPlateforme->execute();
+
+            // Validation de la transaction
+            $db->commit();
+
             // Message à afficher
-            $_SESSION["message"] = "Jeu ajouté";
-            // Redirection vers la page de jeu.php
+            $_SESSION["message"] = "Jeu ajouté avec succès";
+
+            // Redirection vers la page de liste des jeux
             header("Location: ../backoffice/backend_game_list.php");
-            exit;
+            exit();
+
+        } catch (Exception $e) {
+            // En cas d'erreur, annulation de la transaction
+            $db->rollBack();
+
+            $_SESSION["message"] = "Erreur : " . $e->getMessage();
+            header("Location: ../backend/backend_game_add.php");
+            exit();
         }
+    } else {
+        $_SESSION["message"] = "Tous les champs du formulaire doivent être remplis.";
+        header("Location: ../backend/backend_game_add.php");
+        exit();
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
