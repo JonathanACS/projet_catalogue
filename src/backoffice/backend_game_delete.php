@@ -24,29 +24,13 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     // Récupération des chemins des images à supprimer
     $picture_right = $result['picture_right'];
     $picture_left = $result['picture_left'];
-    $picture_right_path = realpath('../src/img/jeu/' . $picture_right);
-    $picture_left_path = realpath('../src/img/jeu/' . $picture_left);
 
     // Suppression des images si elles existent
-    if (!empty($picture_right) && file_exists($picture_right_path)) {
-        if (unlink($picture_right_path)) {
-            // Image droite supprimée avec succès
-        } else {
-            $_SESSION["erreur"] = "Impossible de supprimer l'image droite.";
-            header("Location: backend_game_list.php");
-            exit();
-        }
-    }
+    if (!empty($picture_right) && file_exists($picture_right)) {
+        if (unlink($picture_right));}
 
-    if (!empty($picture_left) && file_exists($picture_left_path)) {
-        if (unlink($picture_left_path)) {
-            // Image gauche supprimée avec succès
-        } else {
-            $_SESSION["erreur"] = "Impossible de supprimer l'image gauche.";
-            header("Location: backend_game_list.php");
-            exit();
-        }
-    }
+    if (!empty($picture_left) && file_exists($picture_left)) {
+        if (unlink($picture_left));}
 
     // Suppression de l'entrée dans la base de données
     $sql_delete = "DELETE FROM `jeux` WHERE `id_game` = :id_game;";

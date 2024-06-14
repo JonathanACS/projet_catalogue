@@ -19,7 +19,7 @@
 
         <?php
     include_once("./include/navbar.php");
-?>
+        ?>
         <figure>
             <img src="../img/header-jeu.jpeg" alt="">
         </figure>

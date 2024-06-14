@@ -47,6 +47,10 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo "<h2 class='text-danger'>" . ($_SESSION["erreur"]) . "</h2>";
                 $_SESSION["erreur"] = ""; 
             }
+            if (!empty($_SESSION["succes"])) {
+                echo "<h2 class='text-danger'>" . ($_SESSION["succes"]) . "</h2>";
+                $_SESSION["succes"] = ""; 
+            }
         ?>
 
         <!-- Idea blur effect on hover (or focus) when we put the mouse on a game then show "modif" and "delete"-->
