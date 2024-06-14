@@ -110,12 +110,12 @@ if ($_POST) {
             $db->rollBack();
 
             $_SESSION["message"] = "Erreur : " . $e->getMessage();
-            header("Location: ../backend/backend_game_add.php");
+            header("Location: ../backoffice/backend_game_add.php");
             exit();
         }
     } else {
         $_SESSION["message"] = "Tous les champs du formulaire doivent être remplis.";
-        header("Location: ../backend/backend_game_add.php");
+        header("Location: ../backoffice/backend_game_add.php");
         exit();
     }
 }
