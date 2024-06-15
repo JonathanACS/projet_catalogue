@@ -3,6 +3,17 @@
 //lancement de la session
 session_start();
 
+//verification admin 
+if (!isset($_SESSION['user']) || $_SESSION['user']['roles'] !== 'ROLE_ADMIN') {
+
+    header('Location: ../index.php');
+    exit();
+}
+
+// Le reste de votre code pour les administrateurs va ici
+echo "Bienvenue, administrateur !";
+
+
 //connexion a la bdd
 require_once("../include/connect.php");
 

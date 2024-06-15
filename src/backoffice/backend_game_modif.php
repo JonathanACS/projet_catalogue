@@ -2,6 +2,12 @@
 
 session_start();
 
+//verification admin 
+if (!isset($_SESSION['user']) || $_SESSION['user']['roles'] !== 'ROLE_ADMIN') {
+    header('Location: ../index.php');
+    exit();
+}
+
 require_once("../include/connect.php");
 
 // Vérifier si l'identifiant du jeu est défini dans l'URL
@@ -57,10 +63,14 @@ if ($_POST) {
         if (isset($_FILES['picture_right']) && $_FILES['picture_right']['error'] == 0) {
             $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
             if (in_array($_FILES['picture_right']['type'], $allowed_types)) {
+                // Supprimer l'ancienne image
+                if (file_exists($game['picture_right'])) {
+                    unlink($game['picture_right']);
+                }
+                // Déplacer la nouvelle image
                 $picture_right = '../img/jeu/' . basename($_FILES['picture_right']['name']);
                 move_uploaded_file($_FILES['picture_right']['tmp_name'], $picture_right);
             }
-
         } else {
             $picture_right = $game['picture_right'];
         }
@@ -68,10 +78,14 @@ if ($_POST) {
         if (isset($_FILES['picture_left']) && $_FILES['picture_left']['error'] == 0) {
             $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
             if (in_array($_FILES['picture_left']['type'], $allowed_types)) {
+                // Supprimer l'ancienne image
+                if (file_exists($game['picture_left'])) {
+                    unlink($game['picture_left']);
+                }
+                // Déplacer la nouvelle image
                 $picture_left = '../img/jeu/' . basename($_FILES['picture_left']['name']);
                 move_uploaded_file($_FILES['picture_left']['tmp_name'], $picture_left);
             }
-
         } else {
             $picture_left = $game['picture_left'];
         }
@@ -110,7 +124,6 @@ if ($_POST) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -131,32 +144,25 @@ if ($_POST) {
             <a class="btn btn-secondary p-2" href="#" onclick="history.go(-1)">Retour</a>
         </div>
 
-
         <div class="container d-flex flex-wrap justify-content-center container-modif">
             <div class="mw-25 w-50 p-2" style="width: 18rem;">
                 <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
                 <div class="d-flex justify-content-center">
-
                     <img class="card picture-game-list-size" src="<?= $game["picture_left"] ?>"
                         alt="<?= $game["picture_left_alt"]?>">
                     <img class="card picture-game-list-size" src="<?= $game["picture_right"] ?>"
                         alt="<?= $game["picture_right_alt"]?>">
-
                 </div>
-
                 <div class="card-body">
                     <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card's content.</p>
+                        the card's content.</p>
                 </div>
                 <div class="card-body">
                     <iframe width="560" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </iframe>
                 </div>
-
             </div>
 
             <form class="text-center w-50 mw-25" method="post" enctype="multipart/form-data">

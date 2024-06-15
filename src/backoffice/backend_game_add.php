@@ -2,6 +2,13 @@
 // Lancement de la session
 session_start();
 
+//verification admin 
+if (!isset($_SESSION['user']) || $_SESSION['user']['roles'] !== 'ROLE_ADMIN') {
+
+    header('Location: ../index.php');
+    exit();
+}
+
 // Connexion à la BDD
 require_once("../include/connect.php");
 
