@@ -139,12 +139,18 @@ figure img {
   form {
     width: 30%;
   }
+  form::after {
+    display: none;
+  }
 }
 @media (min-width: 1px) and (max-width: 1000px) {
   form {
     width: 80%;
     margin: auto;
     height: auto;
+  }
+  form::after {
+    display: none;
   }
   .inscription {
     display: flex;

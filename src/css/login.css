@@ -136,20 +136,30 @@ figure img {
   width: 150px;
   height: 40px;
 }
+.inscription a {
+  margin-bottom: 5%;
+}
 
 @media (min-width: 1000px) and (max-width: 1300px) {
   form {
     width: 30%;
+  }
+  form::after {
+    display: none;
   }
 }
 @media (min-width: 1px) and (max-width: 1000px) {
   form {
     width: 80%;
     margin: auto;
+    height: auto;
   }
   .inscription {
     display: flex;
     flex-direction: column;
     margin: auto;
+  }
+  form::after {
+    display: none;
   }
 }
