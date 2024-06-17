@@ -10,10 +10,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['roles'] !== 'ROLE_ADMIN') {
     exit();
 }
 
-// Le reste de votre code pour les administrateurs va ici
-echo "Bienvenue, administrateur !";
-
-
 //connexion a la bdd
 require_once("../include/connect.php");
 
@@ -34,7 +30,6 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice liste de jeux</title>
-    <link href="../css/stylee.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>

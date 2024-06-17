@@ -81,27 +81,28 @@
 
 <body>
     <?php include_once("./include/navbar.php");?>
-    <section>
-
+    <main class="inscription-login-container">
         <h1 class="title-center">Connectez-vous</h1>
         <form method="post">
+            <figure>
+                <img src="../img/user.png" alt="user icon" width="150px" height="150px">
+            </figure>
             <div class="form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemple@online.com">
             </div>
             <div class="form">
                 <label for="pass">Mot de passe</label>
-                <input type="password" id="pass" name="pass">
+                <input type="password" id="pass" name="pass" placeholder="password">
             </div>
             <div class="inscription">
-                <a href="inscription.php">créer votre compte</a>
                 <button type="submit">Se connecter</button>
+                <a href="inscription.php">créer votre compte</a>
             </div>
         </form>
-        <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
-    </section>
-    <?php include_once("./include/footer.php");?>
 
+    </main>
+    <?php include_once("./include/footer.php");?>
 </body>
 
 </html>

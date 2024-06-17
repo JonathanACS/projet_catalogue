@@ -1,3 +1,20 @@
+:root {
+  --font-regular: "barlow-regular";
+  --font-italic: "barlow-italic";
+  --font-bold: "barlow-bold";
+}
+@font-face {
+  font-family: "barlow-regular";
+  src: url(../css/font/barlow/Barlow-Regular.ttf);
+}
+@font-face {
+  font-family: "barlow-italic";
+  src: url(../css/font/barlow/Barlow-Italic.ttf);
+}
+@font-face {
+  font-family: "barlow-bold";
+  src: url(../css/font/barlow/Barlow-Bold.ttf);
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,10 +24,6 @@
   margin: 0;
   padding: 0;
   font: inherit;
-}
-
-* {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -35,175 +48,108 @@ ul {
   list-style-type: none;
   text-decoration: none;
 }
-
-/* Ancien login et inscription*/
-
-/* .container-login {
-  font-size: 16px;
-  padding: 1%;
-}
-
-.container-login h1 {
-  text-align: center;
-  color: black;
-  font-size: 30px;
-  font-weight: bold;
-  padding: 2%;
-  padding-bottom: 3%;
-}
-
-.container-login h2 {
-  height: 20%;
-  color: black;
-  font-size: 30px;
-}
-
-.container-login {
-  background-image: url(../img/login_background.png);
-  background-repeat: no-repeat;
+/* end reset */
+main {
+  background-image: url("../img/login_background.png");
   background-size: cover;
-}
-
-.login input {
-  border-radius: 20px;
-  background-color: #885bbd;
-  opacity: 0.3;
-  border: none;
-  padding: 2%;
-}
-
-.inscription input {
-  border-radius: 20px;
-  background-color: #885bbd;
-  border: none;
-  padding: 2%;
-}
-
-button {
-  border-radius: 50px;
-  background-color: gray;
-  border: none;
-  padding: 4%;
-  transition: all 0.3s;
-}
-
-button:hover {
-  border: none;
-  cursor: pointer;
-  opacity: 0.9;
-}
-
-.button-login button {
-  padding: 2%;
-  font-size: 20px;
-}
-
-.button-inscription button {
-  padding: 3%;
-  font-size: 23px;
-}
-
-.login a {
-  text-decoration: none;
-}
-
-.inscription a {
-  text-decoration: none;
-}
-
-.container-login a {
-  color: black;
-}
-
-.login {
-  background-color: #f9f5fb;
-  text-align: center;
-  border-radius: 50px;
-  width: 20%;
-  height: 600px;
-}
-
-.inscription {
-  border: solid 1px gray;
-  background-color: #f9f5fb;
-  text-align: center;
-  border-radius: 50px;
-  width: 20%;
-  height: 600px;
-}
-
-.login h2,
-.login label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login label,
-.login input {
-  margin-bottom: 15px;
-}
-
-.login label {
-  margin-bottom: 1%;
-}
-.inscription label {
-  margin-bottom: 1%;
-}
-
-.login h2 {
-  margin-bottom: 5%;
-}
-
-.inscription h2,
-.inscription label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  backdrop-filter: blur(15px);
-  margin-left: 5%;
-  margin-bottom: 70px;
-}
-
-.inscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  backdrop-filter: blur(15px);
-  margin-left: 80%;
-  display: none;
-}
-
-.login form {
+  background-repeat: no-repeat;
   padding-bottom: 5%;
+  text-align: center;
+}
+h1 {
+  padding: 3% 0%;
+  font-size: 2rem;
+  font-family: var(--font-regular);
+  font-weight: bolder;
+}
+form {
+  font-family: var(--font-regular);
+  width: 20%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  height: 500px;
+  gap: 30px;
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
+  padding-bottom: 2%;
+  position: relative;
+}
+form::after {
+  content: "";
+  position: absolute;
+  border-right: solid 1px black; /* Ajout de la couleur pour le bord */
+  height: 120%; /* Spécifiez la hauteur pour que le bord soit visible */
+  right: -100px;
+  top: -50px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+  clip-path: inset(0px -15px 0px 0px);
+}
+figure img {
+  margin: auto;
+  padding-top: 4%;
+}
+.form {
+  font-family: var(--font-regular);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  font-size: 1.3rem;
+}
+.form label {
+  font-family: var(--font-regular);
+}
+.form input {
+  width: 80%;
+  margin-top: 2%;
+  padding: 1%;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: var(--font-regular);
+  border: none;
+}
+.form input::placeholder {
+  font-size: 0.9rem;
+  font-family: var(--font-regular);
+}
+.inscription {
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+  margin-bottom: 5%;
+  gap: 10px;
+}
+.inscription button {
+  font-family: var(--font-regular);
+  padding: 2%;
+  border: none;
+  outline-color: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
 }
 
-.profil-login figure img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  margin-left: 110px;
-  margin-bottom: 35px;
-} */
-
-@media (min-width: 481px) and (max-width: 1570px) {
-  /* Login */
-
-  .login {
-    /* margin-top: 50px;
-    margin-left: 20%; */
-    width: 20%;
-    border: solid 3px red;
+@media (min-width: 1000px) and (max-width: 1300px) {
+  form {
+    width: 30%;
   }
-
-  .profil-login img {
-    padding: 0.5%;
+}
+@media (min-width: 1px) and (max-width: 1000px) {
+  form {
+    width: 80%;
+    margin: auto;
+  }
+  .inscription {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
   }
 }

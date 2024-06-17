@@ -96,38 +96,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer votre compte</title>
-    <link rel="stylesheet" href="./css/inscription.css" />
+    <link rel="stylesheet" href="../css/inscription.css" />
     <link href="./css/footer.css" rel="stylesheet">
     <link href="./css/navbar.css" rel="stylesheet">
 </head>
 
 <body>
     <?php include_once("./include/navbar.php");?>
-    <?php
+    <main>
+        <?php
         if (!empty($_SESSION["error"])) {
             echo "<h3>" . implode("<br>", $_SESSION["error"]) . "</h3>";
         }
-    ?>
-    <h1 class="title-center">Remplissez le formulaire pour créer votre compte</h1>
-    <form method="post">
-        <div class="form">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form">
-            <label for="pass">Mot de passe</label>
-            <input type="password" id="pass" name="pass" required>
-        </div>
-        <button type="submit">Créer votre compte!</button>
-    </form>
-    <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
+        ?>
+        <h1 class="title-center">Remplissez le formulaire pour créer votre compte</h1>
+        <form method="post">
+            <figure>
+                <img src="../img/user.png" alt="user icon" width="100px" height="100px">
+            </figure>
+            <div class="form">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required placeholder="Exemple123">
+            </div>
+            <div class="form">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" required placeholder="example@online.com">
+            </div>
+            <div class="form">
+                <label for="pass">Mot de passe</label>
+                <input type="password" id="pass" name="pass" required placeholder="password">
+            </div>
+            <div class="inscription">
+                <button type="submit">créer votre compte</button>
+                <a href="login.php">Connectez-vous</a>
+            </div>
+        </form>
+    </main>
     <?php include_once("./include/footer.php");?>
-
-
 </body>
 
 </html>
