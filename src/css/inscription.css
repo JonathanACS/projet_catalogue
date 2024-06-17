@@ -89,7 +89,7 @@ form::after {
 }
 figure img {
   margin: auto;
-  padding-top: 4%;
+  padding: 4%;
 }
 .form {
   font-family: var(--font-regular);
@@ -110,6 +110,7 @@ figure img {
   text-align: center;
   font-size: 1.2rem;
   font-family: var(--font-regular);
+  border: none;
 }
 .form input::placeholder {
   font-size: 0.9rem;

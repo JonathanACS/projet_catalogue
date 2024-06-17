@@ -137,9 +137,10 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice ajouter un jeu</title>
-    <link href="../css/stylee.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
 
 </head>
 
@@ -184,13 +185,13 @@ if ($_POST) {
                 </div>
                 <div class="col">
                     <label class="form-label" for="pc">PC</label>
-                    <input class="form-check-input" type="checkbox" id="pc" name="pc">
+                    <input class="form-check-input" type="checkbox" id="pc" name="pc"><br>
                     <label class="form-label" for="playstation">PlayStation</label>
-                    <input class="form-check-input" type="checkbox" id="playstation" name="playstation">
+                    <input class="form-check-input" type="checkbox" id="playstation" name="playstation"><br>
                     <label class="form-label" for="xbox">Xbox</label>
-                    <input class="form-check-input" type="checkbox" id="xbox" name="xbox">
+                    <input class="form-check-input" type="checkbox" id="xbox" name="xbox"><br>
                     <label class="form-label" for="switch">Switch</label>
-                    <input class="form-check-input" type="checkbox" id="switch" name="switch">
+                    <input class="form-check-input" type="checkbox" id="switch" name="switch"><br>
                 </div>
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-secondary p-10">Envoyer</button>
@@ -202,6 +203,8 @@ if ($_POST) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <script src="../script.js"></script>
+
 </body>
 
 </html>

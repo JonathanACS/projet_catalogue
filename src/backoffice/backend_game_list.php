@@ -32,13 +32,15 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <title>Backoffice liste de jeux</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
 </head>
 
 <body>
 
     <?php include_once("../include/navbar.php")?>
 
-    <section class="p-2 text-black">
+    <section class="text-black">
         <h1 class="text-center">Liste des jeux</h1>
         <div class="text-center">
             <a class="btn btn-secondary p-2" href="backend_game_add.php">Ajouter un jeux</a>
@@ -65,30 +67,23 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
             <?php foreach($result as $game): ?>
 
-            <div class="col-md-auto mx-auto">
+            <article class="col-md-auto mx-auto">
                 <p class="text-center"><?= $game["title_game"] ?></p>
                 <img class="picture-game-list-size" src="<?= $game["picture_right"] ?>"
                     alt="<?= $game["picture_right_alt"] ?>">
                 <div class="text-center">
-                    <a class="btn btn-secondary p-2" href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier le
-                        jeu <?= $game["title_game"] ?></a>
+                    <a class="btn btn-secondary p-2" href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier</a>
                     <a class="btn btn-secondary p-2"
                         href="backend_game_delete.php?id=<?=$game["id_game"]?>">Supprimer</a>
 
                 </div>
-            </div>
+            </article>
 
             <?php endforeach; ?>
 
         </div>
-
-        <?php include_once("../include/footer.php")?>
-
     </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <?php include_once("../include/footer.php")?>
 </body>
 
 </html>

@@ -44,6 +44,7 @@ ul {
   font-weight: bold;
   margin-top: 2%;
   text-transform: uppercase;
+  border-bottom: 1px solid 0% 100% 0% 100% / 0% 12% 88% 100%;
 }
 
 .img-text {
