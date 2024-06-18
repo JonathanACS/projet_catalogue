@@ -102,33 +102,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include_once("./include/navbar.php");?>
-    <?php
+    <main>
+        <?php
         if (!empty($_SESSION["error"])) {
             echo "<h3>" . implode("<br>", $_SESSION["error"]) . "</h3>";
         }
     ?>
-    <h1 class="title-center">Remplissez le formulaire pour créer votre compte</h1>
-    <form method="post">
-        <div class="form">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form">
-            <label for="pass">Mot de passe</label>
-            <input type="password" id="pass" name="pass" required>
-        </div>
-        <button type="submit">Créer votre compte!</button>
-    </form>
-    <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
+        <h1 class="title-center">Remplissez le formulaire pour créer votre compte</h1>
+        <form method="post">
+            <div class="form">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form">
+                <label for="pass">Mot de passe</label>
+                <input type="password" id="pass" name="pass" required>
+            </div>
+            <button type="submit">Créer votre compte!</button>
+        </form>
+        <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
-    <?php include_once("./include/footer.php");?>
-
+        <?php include_once("./include/footer.php");?>
+        <script src="script.js"></script>
 
 </body>
 

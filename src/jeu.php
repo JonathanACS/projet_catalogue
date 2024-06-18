@@ -1,3 +1,25 @@
+<?php 
+session_start();
+
+require_once("include/connect.php");
+
+// Vérifier si l'identifiant du jeu est défini dans l'URL
+if (isset($_GET["id"])) {
+    $id_game = $_GET["id"];
+
+    // Récupérer les données du jeu
+    $sql = "SELECT * FROM jeux WHERE id_game = :id_game";
+    $query = $db->prepare($sql);
+    $query->bindValue(':id_game', $id_game, PDO::PARAM_INT);
+    $query->execute();
+    $game = $query->fetch(PDO::FETCH_ASSOC);
+
+} else {
+    $_SESSION["erreur"] = "Jeu introuvable";
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,7 +47,7 @@
     </header>
 
 
-    <h1 class="titre-jeu">Titre du jeu</h1>
+    <h1 class="titre-jeu"><?= $game["title_game"]?></h1>
 
     <div class="container-jeu">
 
@@ -67,17 +89,16 @@
 
         </div>
 
-        <div class="trailler">
-
-            <p>Trailler</p>
-
-        </div>
+        <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         <script src="script.js"></script>
 
         <?php
     include_once("./include/footer.php");
 ?>
+        <script src="script.js"></script>
 
 </body>
 

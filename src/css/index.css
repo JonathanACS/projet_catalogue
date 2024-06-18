@@ -1,3 +1,20 @@
+:root {
+  --font-regular: "barlow-regular";
+  --font-italic: "barlow-italic";
+  --font-bold: "barlow-bold";
+}
+@font-face {
+  font-family: "barlow-regular";
+  src: url(../css/font/barlow/Barlow-Regular.ttf);
+}
+@font-face {
+  font-family: "barlow-italic";
+  src: url(../css/font/barlow/Barlow-Italic.ttf);
+}
+@font-face {
+  font-family: "barlow-bold";
+  src: url(../css/font/barlow/Barlow-Bold.ttf);
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -36,39 +53,77 @@ ul {
   text-decoration: none;
 }
 
-/* Fichier Index */
+/* end reset */
 
-.container-index {
-  margin-bottom: 100px;
-  background-color: #885bbd;
+main {
+  padding: 2% 0%;
+  background: #f1f1f1;
 }
-
-.container-index-1 {
-  margin-bottom: 100px;
-  background-color: #8e9cca;
+.jeu-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  margin: 0% 2% 0% 2%;
+  justify-content: space-evenly;
 }
-
-.titre-index {
-  padding-top: 2%;
-  text-align: center;
+/* card overlay */
+.card {
+  width: 325px;
+  height: 425px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid #333333;
+  position: relative;
+  overflow: hidden;
+  margin: 1%;
+}
+.card:hover .card-body {
+  /* top: 0; */
+  top: 0;
+  opacity: 1;
+  transition: 0.3s;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.card-body {
+  width: 100%;
+  height: 100%;
+  right: 0;
+  /* top: 100%; */
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  background-color: #54666e73;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10%;
+}
+.card-title {
+  text-transform: uppercase;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: bolder;
+  font-family: var(--font-regular);
 }
-
-.img-index img,
-.img-index-1 img {
-  margin-top: 70px;
-  margin-left: 20%;
-  display: flex;
-  flex-direction: row;
-  border: solid 2px blue;
+.card-sub {
+  text-align: center;
+  padding: 10px;
 }
-
-.img-1-index img,
-.img-2-index img {
-  margin-top: 200px;
-  margin-left: 20%;
-  display: flex;
-  flex-direction: row;
-  border: solid 2px red;
+.card-btn {
+  text-transform: uppercase;
+  font-family: var(--font-regular);
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  outline: transparent;
+  background-color: #eeeeee;
 }
+/* card overlay */

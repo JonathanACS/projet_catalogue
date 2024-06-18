@@ -131,9 +131,10 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backoffice - Modifier un jeu</title>
-    <link href="../css/stylee.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -157,8 +158,8 @@ if ($_POST) {
                     <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of
                         the card's content.</p>
                 </div>
-                <div class="card-body">
-                    <iframe width="560" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
+                <div class="card-body ms-3">
+                    <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -201,11 +202,13 @@ if ($_POST) {
                             name="picture_left_alt" value="<?=$game['picture_left_alt']?>">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <label class="form-label fw-bolder" for="text_game">Texte du jeu</label>
-                        <input class="form-control text-center" type="text" id="text_game" name="text_game"
-                            value="<?=$game['text_game']?>">
+                        <textarea class="form-control" id="text_game"
+                            name="text_game"><?=$game['text_game']?>"></textarea>
+
                     </div>
                 </div>
                 <div class="row">
@@ -216,10 +219,18 @@ if ($_POST) {
                             name="desc_game"><?=$game['desc_game']?></textarea>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
                 <div class="col">
                     <label class="form-label text-uppercase fw-bolder" for="pc">PC</label>
                     <input class="form-check-input" type="checkbox" id="pc" name="pc"
-                        <?=$plateforme['pc'] ? 'checked' : ''?>><br>
+                        <?=$plateforme['pc'] ? 'checked' : ''?>>
                     <label class="form-label text-uppercase fw-bolder" for="playstation">PlayStation</label>
                     <input class="form-check-input" type="checkbox" id="playstation" name="playstation"
                         <?=$plateforme['playstation'] ? 'checked' : ''?>><br>
