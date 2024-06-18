@@ -49,12 +49,14 @@ ul {
   text-decoration: none;
 }
 /* end reset */
+
 main {
   background-image: url("../img/login_background.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding-bottom: 5%;
   text-align: center;
+  height: 80vh;
 }
 h1 {
   padding: 3% 0%;
@@ -63,19 +65,20 @@ h1 {
   font-weight: bolder;
 }
 form {
+  margin-top: 4%;
   font-family: var(--font-regular);
   width: 20%;
   margin-left: 10%;
-  display: flex;
-  flex-direction: column;
   border-radius: 25px;
-  height: 500px;
   gap: 30px;
   backdrop-filter: blur(10px);
   -webkit-box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 48px 35px rgba(0, 0, 0, 0.12);
   padding-bottom: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 form::after {
   content: "";
@@ -98,6 +101,7 @@ figure img {
   align-items: center;
   padding-top: 1%;
   font-size: 1.3rem;
+  gap: 5px;
 }
 .form label {
   font-family: var(--font-regular);
@@ -122,8 +126,6 @@ figure img {
   flex-direction: column;
   margin: auto;
   gap: 10px;
-  margin-bottom: 5%;
-  gap: 10px;
 }
 .inscription button {
   font-family: var(--font-regular);
@@ -134,6 +136,7 @@ figure img {
   border-radius: 10px;
   width: 150px;
   height: 40px;
+  margin: auto;
 }
 
 @media (min-width: 1000px) and (max-width: 1300px) {

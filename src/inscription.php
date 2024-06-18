@@ -96,41 +96,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer votre compte</title>
-    <link rel="stylesheet" href="./css/inscription.css" />
+    <link href="./css/inscription.css" rel="stylesheet" />
     <link href="./css/nav-footer.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php include_once("./include/navbar.php");?>
+    <header>
+        <?php include_once("./include/navbar.php");?>
+    </header>
     <main>
         <?php
-        if (!empty($_SESSION["error"])) {
-            echo "<h3>" . implode("<br>", $_SESSION["error"]) . "</h3>";
-        }
-    ?>
+            if (!empty($_SESSION["error"])) {
+                echo "<h3>" . implode("<br>", $_SESSION["error"]) . "</h3>";
+            }
+        ?>
         <h1 class="title-center">Remplissez le formulaire pour créer votre compte</h1>
         <form method="post">
             <div class="form">
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required placeholder="username">
             </div>
             <div class="form">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="email@online.fr">
             </div>
             <div class="form">
                 <label for="pass">Mot de passe</label>
-                <input type="password" id="pass" name="pass" required>
+                <input type="password" id="pass" name="pass" required placeholder="password">
             </div>
-            <button type="submit">Créer votre compte!</button>
+            <div class="inscription">
+                <button type="submit">Créer votre compte</button>
+                <a href="login.php">Se connecter</a>
+            </div>
         </form>
-        <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
+    </main>
 
-        <script src="script.js"></script>
-
-        <?php include_once("./include/footer.php");?>
-        <script src="script.js"></script>
-
+    <?php include_once("./include/footer.php");?>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -21,16 +21,16 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/nav-footer.css" rel="stylesheet">
-    <link href="./css/header.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/nav-footer.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
 </head>
 
 <body>
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
         <figure>
-            <img src="../img/header-jeu.jpeg" alt="">
+            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
         </figure>
     </header>
     <main>

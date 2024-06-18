@@ -19,7 +19,7 @@
 ?>
 
         <figure>
-            <img src="../img/header-categories.jpg" alt="">
+            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
         </figure>
 
     </header>

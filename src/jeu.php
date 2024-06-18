@@ -14,11 +14,17 @@ if (isset($_GET["id"])) {
     $query->execute();
     $game = $query->fetch(PDO::FETCH_ASSOC);
 
-} else {
-    $_SESSION["erreur"] = "Jeu introuvable";
-    header("Location: index.php");
-    exit;
-}
+        //verification id jeu
+        if(!$game){
+            $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun jeu ne correspond!";
+            header("Location: index.php");
+            exit();
+        }
+    }else{
+        $_SESSION["erreur"] = "La page demandée n'existe pas, veuillez réessayer plus tard";
+        header("Location: index.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,11 +41,7 @@ if (isset($_GET["id"])) {
 <body>
 
     <header class="header-jeu">
-
-        <?php
-    include_once("./include/navbar.php");
-?>
-
+        <?php include_once("./include/navbar.php");?>
         <figure>
             <img src="../img/header-jeu.jpeg" alt="">
         </figure>
