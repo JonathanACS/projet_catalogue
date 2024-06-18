@@ -43,7 +43,7 @@ if (isset($_GET["id"])) {
     <header class="header-jeu">
         <?php include_once("./include/navbar.php");?>
         <figure>
-            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
+            <img class="header-jeu" src="<?= $game["picture_header"] ?>" alt="<?= $game["picture_header_alt"]?>">
         </figure>
     </header>
 

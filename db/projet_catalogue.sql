@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : ven. 14 juin 2024 à 14:06
+-- Généré le : mar. 18 juin 2024 à 12:27
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -36,22 +36,24 @@ CREATE TABLE `jeux` (
   `picture_left` varchar(255) NOT NULL,
   `picture_left_alt` varchar(255) NOT NULL,
   `desc_game` text NOT NULL,
-  `trailler` varchar(255) NOT NULL
+  `trailler` varchar(255) NOT NULL,
+  `picture_header` varchar(255) NOT NULL,
+  `picture_header_alt` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `jeux`
 --
 
-INSERT INTO `jeux` (`id_game`, `title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`) VALUES
-(39, 'Titre eeeee', 'Titre ', '../img/jeu/VIs5ByTAEEiDdEaHmijJ.jpg', 'Titre ', '../img/jeu/hpENbgQNhfI18LYk5r5g.jpg', 'Titre ', 'Titre ', 'Titre '),
-(40, 'test', 'test', '../img/jeu/NRidKi6zFRzs92jQ6GEO.jpg', 'test', '../img/jeu/J1r9pooKAyZcW4f7O679.png', 'test', 'test', 'test'),
-(41, 'hollow knightrrrrrrrrr', 'hollow ', '../img/jeu/bP4eWpl92Mu2P8ndupfW.png', 'hollow ', '../img/jeu/Wu9r966zhpqQ4VKG8T3w.png', 'hollow ', 'hollow ', 'hollow '),
-(42, 'aaaaaaaa', 'aaaaaaaa', '../img/jeu/pIe6KbtZt8xlH17mOVab.jpg', 'aaaaaaaa', '../img/jeu/OfRO2RrK3WirW39Nucsr.jpg', 'aaaaaaaa', 'aaaaaaaa', 'aaaaaaaa'),
-(45, 'mario', 'mario', '../img/jeu/15aEksPsOI9SwUXgKMIt.jpg', 'mario', '../img/jeu/vcCsSkIlBJby72wb4mMw.jpg', 'mario', 'mario', 'mario'),
-(46, 'mario2', 'mario2', '../img/jeu/1moThJ8OkVKaB8XM96Rk.jpg', 'mario2', '../img/jeu/cNEpVB0An3pa6mXaUoYJ.jpg', 'mario2', 'mario2', 'mario2'),
-(47, 'avion', 'avion', '../img/jeu/hollow_knight.png', 'avion', '../img/jeu/gu5zsJpDwGWjQcQHSO1V.png', 'avion', 'avion', 'https://www.youtube.com/embed/nSPJXlYjENE?si=Fgegkr3vJFjvP6OZ'),
-(48, 'hollow knight', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', '../img/jeu/d9CyUJo5LnRH55rKKgw0.png', 'hollow knight game', '../img/jeu/1YI95WvbXghoYNv5wMG0.png', 'hollow knight game', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', 'https://www.youtube.com/embed/nSPJXlYjENE?si=Fgegkr3vJFjvP6OZ');
+INSERT INTO `jeux` (`id_game`, `title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`, `picture_header`, `picture_header_alt`) VALUES
+(55, 'hollow knight', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses\">\">', '../img/jeu/ixRKCeHPVGxmGqJU7izx.png', 'hollow knight game', '../img/jeu/WRLS6s1L1ym6qbVfKPGH.png', 'hollow knight game', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', 'https://www.youtube.com/embed/nSPJXlYjENE?si=GcfzVZnFWlYe0pIy', '', ''),
+(56, 'dark souls 3', 'L\'Âge du Feu peut être prolongé en se liant au Feu, un rituel dans lequel les grands seigneurs et héros sacrifient leur âme afin de faire perdurer la Première Flamme. Cependant, le Prince Lothric, désigné comme devant se lier au Feu, a abandonné son devoir et choisi d\'observer de loin la mort des flammes', '../img/jeu/YzRUNSUBKfgVuVchzUxc.jpg', 'dark souls 3 game', '../img/jeu/4oO4QVZ0B50t0jHgArrk.jpg', 'dark souls 3 game', 'L\'Âge du Feu peut être prolongé en se liant au Feu, un rituel dans lequel les grands seigneurs et héros sacrifient leur âme afin de faire perdurer la Première Flamme. Cependant, le Prince Lothric, désigné comme devant se lier au Feu, a abandonné son devoir et choisi d\'observer de loin la mort des flammes', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '', ''),
+(57, 'Jeu', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', '../img/jeu/vNZU9020kwsTKEtHDOs7.jpg', 'aaaa', '../img/jeu/1J5nmo6yUTHgj2x0hrm9.jpg', 'aaa', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '', ''),
+(58, 'aaa', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '../img/jeu/tRnbwqtM2iaAU6FZDHES.png', 'aaa', '../img/jeu/A6JQ0zUjqzkGPYYf6goa.png', 'aaa', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '', ''),
+(59, 'avion', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoohttps://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '../img/jeu/gKLttmQB391LnHt0zKDT.jpg', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '../img/jeu/i2CsTAQMDH9iqeTnQvLb.jpg', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoohttps://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '', ''),
+(60, 'hollow knight', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', '../img/jeu/x9r60TNvyc4vrquh0qMg.png', 'hollow knight game', '../img/jeu/j1Fw5a9PzC5iRBWuV1tz.png', 'hollow knight game', 'Hollow Knight est un jeu classique d\'action et d\'aventure en 2D, qui prend place dans un vaste monde souterrain interconnecté. Explorez un labyrinthe de cavernes, de villes ancestrales et de terres désolées dangereuses', 'https://www.youtube.com/embed/nSPJXlYjENE?si=GcfzVZnFWlYe0pIy', '', ''),
+(61, 'dark souls 3', 'L\'Âge du Feu peut être prolongé en se liant au Feu, un rituel dans lequel les grands seigneurs et héros sacrifient leur âme afin de faire perdurer la Première Flamme. Cependant, le Prince Lothric, désigné comme devant se lier au Feu, a abandonné son devoir et choisi d\'observer de loin la mort des flammes', '../img/jeu/tCq4ThJLiWkXhOCpp8O3.jpg', 'dark souls 3 game', '../img/jeu/2KUuAXPdn1sESdl591UV.jpg', 'dark souls 3 game', 'L\'Âge du Feu peut être prolongé en se liant au Feu, un rituel dans lequel les grands seigneurs et héros sacrifient leur âme afin de faire perdurer la Première Flamme. Cependant, le Prince Lothric, désigné comme devant se lier au Feu, a abandonné son devoir et choisi d\'observer de loin la mort des flammes', 'https://www.youtube.com/embed/_zDZYrIUgKE?si=uEoFenhmhCP9cEoo', '', ''),
+(62, 'ze', 'ze', '../img/jeu/sAzi2xE5BoCDwPZ6ne10.jpg', 'ze', '../img/jeu/Ye5rREB4MPYiaubOFvLy.jpg', 'ze', 'ze', 'ze', '', '');
 
 -- --------------------------------------------------------
 
@@ -74,13 +76,17 @@ CREATE TABLE `plateforme` (
 --
 
 INSERT INTO `plateforme` (`id_plateforme`, `id_game`, `title_game`, `pc`, `playstation`, `xbox`, `switch`) VALUES
-(1, 40, '', 1, 1, 1, 1),
-(2, 41, '', 1, 1, 1, 1),
-(3, 42, '', 1, 0, 0, 0),
-(6, 45, '', 0, 0, 0, 1),
-(7, 46, '', 0, 0, 0, 1),
-(8, 47, '', 1, 1, 1, 1),
-(9, 48, 'hollow knight', 1, 1, 1, 1);
+(13, 52, 'game_name', 1, 1, 1, 1),
+(14, 53, 'test', 1, 0, 0, 0),
+(15, 54, 'aaaaa', 0, 1, 0, 0),
+(16, 55, 'hollow knight', 1, 1, 1, 1),
+(17, 56, 'dark souls 3', 1, 1, 1, 0),
+(18, 57, 'Jeu', 1, 1, 1, 1),
+(19, 58, 'aaa', 1, 0, 0, 0),
+(20, 59, 'avion', 0, 0, 1, 0),
+(21, 60, 'hollow knight', 1, 1, 1, 1),
+(22, 61, 'dark souls 3', 1, 1, 1, 0),
+(23, 62, 'ze', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -135,19 +141,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `jeux`
 --
 ALTER TABLE `jeux`
-  MODIFY `id_game` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_game` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT pour la table `plateforme`
 --
 ALTER TABLE `plateforme`
-  MODIFY `id_plateforme` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_plateforme` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

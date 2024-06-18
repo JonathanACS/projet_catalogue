@@ -33,6 +33,8 @@ if ($_POST) {
         && isset($_POST["picture_left_alt"]) && !empty($_POST["picture_left_alt"])
         && isset($_POST["desc_game"]) && !empty($_POST["desc_game"])
         && isset($_POST["trailler"]) && !empty($_POST["trailler"])
+        && isset($_FILES["picture_header"]) && $_FILES["picture_header"]["error"] == 0
+        && isset($_POST["picture_header_alt"]) && !empty($_POST["picture_header_alt"])
         && (isset($_POST["pc"]) || isset($_POST["playstation"]) || isset($_POST["xbox"]) || isset($_POST["switch"]))) {
 
         // Début d'une transaction
@@ -46,6 +48,7 @@ if ($_POST) {
             $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
             $desc_game = strip_tags($_POST["desc_game"]);
             $trailler = strip_tags($_POST["trailler"]);
+            $picture_header_alt = strip_tags($_POST["picture_header_alt"]);
             $pc = isset($_POST["pc"]) ? 1 : 0;
             $playstation = isset($_POST["playstation"]) ? 1 : 0;
             $xbox = isset($_POST["xbox"]) ? 1 : 0;
@@ -75,8 +78,19 @@ if ($_POST) {
                 throw new Exception("Format de l'image gauche non autorisé.");
             }
 
+            // Gestion de picture_header PAR ROBERTO
+            $imageFileType = strtolower(pathinfo($_FILES['picture_header']['name'], PATHINFO_EXTENSION));
+            if (in_array($imageFileType, $allowedTypes)) {
+                $newFileNameLeft = generateRandomString(20) . '.' . $imageFileType;
+                $picture_header = $uploadDir . $newFileNameLeft;
+                move_uploaded_file($_FILES['picture_header']['tmp_name'], $picture_header);
+            } else {
+                throw new Exception("Format de l'image gauche non autorisé.");
+            }
+
             // Insertion dans la table `jeux`
-            $sqlJeux = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler)";
+            $sqlJeux = "INSERT INTO `jeux` (`title_game`, `text_game`, `picture_right`, `picture_right_alt`, `picture_left`, `picture_left_alt`, `desc_game`, `trailler`, `picture_header`, `picture_header_alt` ) VALUES (:title_game, :text_game, :picture_right, :picture_right_alt, :picture_left, :picture_left_alt, :desc_game, :trailler, :picture_header, :picture_header_alt)";
+            
             $queryJeux = $db->prepare($sqlJeux);
             $queryJeux->bindValue(':title_game', $title_game, PDO::PARAM_STR);
             $queryJeux->bindValue(':text_game', $text_game, PDO::PARAM_STR);
@@ -86,6 +100,8 @@ if ($_POST) {
             $queryJeux->bindValue(':picture_left_alt', $picture_left_alt, PDO::PARAM_STR);
             $queryJeux->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
             $queryJeux->bindValue(':trailler', $trailler, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_header', $picture_header, PDO::PARAM_STR);
+            $queryJeux->bindValue(':picture_header_alt', $picture_header_alt, PDO::PARAM_STR);
             $queryJeux->execute();
 
             // Récupération de l'ID du jeu inséré
@@ -176,6 +192,12 @@ if ($_POST) {
                     <input class="form-control" type="file" id="picture_left" name="picture_left" required>
                     <label class="form-label" for="picture_left_alt">ALT image gauche</label>
                     <input class="form-control" type="text" id="picture_left_alt" name="picture_left_alt" required>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="picture_header">image header</label>
+                    <input class="form-control" type="file" id="picture_header" name="picture_header" required>
+                    <label class="form-label" for="picture_header_alt">ALT image header</label>
+                    <input class="form-control" type="text" id="picture_header_alt" name="picture_header_alt" required>
                 </div>
                 <div class="col">
                     <label class="form-label" for="desc_game">Description du jeu</label>
