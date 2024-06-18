@@ -97,8 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer votre compte</title>
     <link rel="stylesheet" href="./css/inscription.css" />
-    <link href="./css/footer.css" rel="stylesheet">
-    <link href="./css/navbar.css" rel="stylesheet">
+    <link href="./css/nav-footer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -125,6 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Créer votre compte!</button>
     </form>
     <a href="#" onclick="history.go(-1)"><button>Retour</button></a>
+
+    <script src="script.js"></script>
+
     <?php include_once("./include/footer.php");?>
 
 

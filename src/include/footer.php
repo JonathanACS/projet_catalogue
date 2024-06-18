@@ -12,12 +12,8 @@
         <li><a href="">Retrouve les dernières actus des jeux vidéo</a></li>
     </ul>
 
-    <div class="logo-footer">
-
-        <figure>
-            <img src="../img/manette.png" alt="img-footer">
-        </figure>
-
-    </div>
+    <figure class="logo-footer">
+        <img src="../img/manette.png" alt="img-footer">
+    </figure>
 
 </footer>

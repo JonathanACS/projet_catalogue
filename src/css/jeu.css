@@ -59,8 +59,6 @@ ul {
 }
 
 .text p,
-.img-1 img,
-.img-2 img,
 .plateforme p {
   text-align: center;
   border: solid 1px gray;
@@ -68,7 +66,20 @@ ul {
   text-align: center;
 }
 
+.img-1 img {
+  padding-top: 1%;
+  /* border: solid 0.5px orange; */
+}
+
+.img-2 img {
+  padding-top: -1%;
+  /* border: solid 0.5px orange; */
+}
+
 .text p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top-left-radius: 20px;
   width: 300px;
   height: 390px;
@@ -77,6 +88,9 @@ ul {
 }
 
 .plateforme p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom-right-radius: 20px;
   width: 300px;
   height: 390px;
@@ -87,6 +101,9 @@ ul {
 }
 
 .description p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid 1px gray;
   text-align: center;
   background-color: #8e9cca;
@@ -98,6 +115,9 @@ ul {
 }
 
 .trailler p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid 1px gray;
   text-align: center;
   background-color: #8e9cca;
@@ -110,6 +130,8 @@ ul {
 }
 
 /* Responsive Fichier Jeu */
+
+/* Media 1571 */
 
 @media (min-width: 604px) and (max-width: 1571px) {
   .text p {
@@ -140,6 +162,130 @@ ul {
     margin-left: 90px;
   }
 }
+
+/* Media 620 */
+
+@media (min-width: 601px) and (max-width: 620px) {
+  .titre-jeu {
+    margin-top: 30px;
+  }
+
+  .img-2 img {
+    display: none;
+  }
+
+  .text p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .plateforme p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .description p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .description {
+    margin-left: -10%;
+  }
+
+  .trailler p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 550px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .trailler {
+    padding-right: 50%;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 600px) {
+  .titre-jeu {
+    margin-top: 30px;
+  }
+
+  .img-2 img {
+    display: none;
+  }
+
+  .text p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .plateforme p {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .description p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .description {
+    padding-right: -30%;
+  }
+
+  .trailler p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .trailler {
+    padding-right: -30%;
+  }
+}
+
+/* Media 603 */
 
 @media (min-width: 350px) and (max-width: 603px) {
   .img-2 {
@@ -203,19 +349,15 @@ ul {
   .mobile-accueil {
     margin-left: 90px;
   }
-
-  /* .logo-footer {
-    display: none;
-  }
-
-  .mobile-footer {
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-  } */
 }
 
+/* Media 349 */
+
 @media (max-width: 349px) {
+  .titre-jeu {
+    margin-top: 30px;
+  }
+
   .img-2 img {
     display: none;
   }
@@ -225,19 +367,17 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
 
   .plateforme p {
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
@@ -248,13 +388,27 @@ ul {
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 300px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .description {
+    padding-right: 80%;
   }
 
   .trailler p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 390px;
+    border-radius: 20px;
+  }
+
+  .trailler {
+    padding-right: 50%;
   }
 }

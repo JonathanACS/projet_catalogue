@@ -43,7 +43,7 @@
                   <p>Bonjour <span class="pseudo"><?= ($_SESSION["user"]["pseudo"]) ?></span></p>
                   <li><a href="deconnexion.php">Se déconnecter</a></li>
                   <?php endif; ?>
-                  <li><a href="../backoffice/backend_game_list.php">backoffice</a></li>
+                  <li><a href="../backoffice/backend_game_list.php">Backoffice</a></li>
               </ul>
           </div>
 

@@ -44,8 +44,68 @@ ul {
   object-fit: cover;
 }
 
-.header-index img {
+.header-jeu img {
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+@media (max-width: 810px) {
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .header-jeu img {
+    margin-top: 80px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .menu {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    transition: 0.3s ease;
+  }
+
+  .container-nav {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .menu-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-nav a {
+    box-sizing: border-box;
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobile-accueil {
+    font-size: 1.5rem;
+    padding-left: 50%;
+  }
+
+  .menu-nav .sous-nav {
+    display: none;
+  }
+
+  .accueil {
+    display: none;
+  }
+
+  .sous-nav li {
+    display: none;
+  }
 }

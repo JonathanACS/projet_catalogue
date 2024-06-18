@@ -22,8 +22,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/navbar.css" rel="stylesheet">
-    <link href="./css/footer.css" rel="stylesheet">
+    <link href="./css/nav-footer.css" rel="stylesheet">
     <link href="./css/header.css" rel="stylesheet">
 </head>
 
@@ -49,6 +48,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <?php endforeach; ?>
+
+    <script src="script.js"></script>
+
     <?php
         include_once("./include/footer.php");
     ?>
