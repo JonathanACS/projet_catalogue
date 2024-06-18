@@ -33,6 +33,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/nav-footer.css" rel="stylesheet">
+    <link href="../css/backend.css" rel="stylesheet">
 
 </head>
 
@@ -63,13 +64,13 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <!-- Idea blur effect on hover (or focus) when we put the mouse on a game then show "modif" and "delete"-->
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
             <?php foreach($result as $game): ?>
 
             <article class="col-md-auto mx-auto">
                 <p class="text-center"><?= $game["title_game"] ?></p>
-                <img class="picture-game-list-size" src="<?= $game["picture_right"] ?>"
+                <img class="picture-game-list-size text-center" src="<?= $game["picture_right"] ?>"
                     alt="<?= $game["picture_right_alt"] ?>">
                 <div class="text-center">
                     <a class="btn btn-secondary p-2" href="backend_game_modif.php?id=<?=$game["id_game"]?>">Modifier</a>

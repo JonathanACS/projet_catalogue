@@ -152,6 +152,7 @@ if ($_POST) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/nav-footer.css" rel="stylesheet">
+    <link href="../css/backend.css" rel="stylesheet">
 
 </head>
 
@@ -164,7 +165,6 @@ if ($_POST) {
             <h1>Modifier un jeu</h1>
             <a class="btn btn-secondary p-2" href="#" onclick="history.go(-1)">Retour</a>
         </div>
-
         <div class="container d-flex flex-wrap justify-content-center container-modif">
             <div class="mw-25 w-50 p-2" style="width: 18rem;">
                 <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
@@ -257,7 +257,7 @@ if ($_POST) {
                 <div class="col">
                     <label class="form-label text-uppercase fw-bolder" for="pc">PC</label>
                     <input class="form-check-input" type="checkbox" id="pc" name="pc"
-                        <?=$plateforme['pc'] ? 'checked' : ''?>>
+                        <?=$plateforme['pc'] ? 'checked' : ''?>><br>
                     <label class="form-label text-uppercase fw-bolder" for="playstation">PlayStation</label>
                     <input class="form-check-input" type="checkbox" id="playstation" name="playstation"
                         <?=$plateforme['playstation'] ? 'checked' : ''?>><br>
