@@ -34,6 +34,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </figure>
     </header>
     <main>
+        <h1>Voici notre selection!</h1>
         <div class="jeu-container">
             <?php foreach($result as $game): ?>
             <article class="card">

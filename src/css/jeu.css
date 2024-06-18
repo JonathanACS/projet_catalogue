@@ -153,11 +153,14 @@ section {
   background-image: url("../img/polygon-scatter-haikei.png");
   padding: 3% 0% 3% 0%;
   margin: auto;
-  color: wheat;
+  color: rgba(245, 222, 179, 0.822);
 }
 iframe {
   display: block;
   margin: auto;
+  border: 2.5px solid;
+  box-shadow: rgba(245, 222, 179, 0.473) 0px 10px 36px 0px,
+    rgba(245, 222, 179, 0.5) 0px 0px 0px 1px;
 }
 .img-size {
   height: 400px;
