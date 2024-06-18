@@ -79,7 +79,6 @@ main {
 }
 .card:hover .card-body {
   top: 0%;
-  /* opacity: 1; */
   transition: 0.3s;
 }
 .card-img {
@@ -93,8 +92,6 @@ main {
   height: 100%;
   right: 0;
   top: 100%;
-  /* top: 0; */
-  /* opacity: 0; */
   position: absolute;
   background-color: #54666e73;
   backdrop-filter: blur(5px);
@@ -124,5 +121,9 @@ main {
   border: none;
   outline: transparent;
   background-color: #eeeeee;
+}
+section {
+  height: 100vh;
+  background-color: #333333;
 }
 /* card overlay */

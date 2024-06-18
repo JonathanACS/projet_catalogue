@@ -1,3 +1,20 @@
+:root {
+  --font-regular: "barlow-regular";
+  --font-italic: "barlow-italic";
+  --font-bold: "barlow-bold";
+}
+@font-face {
+  font-family: "barlow-regular";
+  src: url(../css/font/barlow/Barlow-Regular.ttf);
+}
+@font-face {
+  font-family: "barlow-italic";
+  src: url(../css/font/barlow/Barlow-Italic.ttf);
+}
+@font-face {
+  font-family: "barlow-bold";
+  src: url(../css/font/barlow/Barlow-Bold.ttf);
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -35,22 +52,34 @@ ul {
   list-style-type: none;
   text-decoration: none;
 }
+p,
+a,
+h1,
+h2 {
+  font-family: var(--font-regular);
+}
 
 /* Fichie Jeu */
-
+main {
+  background-color: #e1dfe2;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
 .titre-jeu {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 2%;
   text-transform: uppercase;
-  border-bottom: 1px solid 0% 100% 0% 100% / 0% 12% 88% 100%;
 }
 
 .img-text {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.img-size {
+  width: 325px;
+  height: 425px;
 }
 
 .img-plateforme {
@@ -65,16 +94,15 @@ ul {
   border: solid 1px gray;
   background-color: #f9f5fb;
   text-align: center;
+  font-family: var(--font-regular);
 }
 
 .img-1 img {
   padding-top: 1%;
-  /* border: solid 0.5px orange; */
 }
 
 .img-2 img {
   padding-top: -1%;
-  /* border: solid 0.5px orange; */
 }
 
 .text p {
@@ -101,36 +129,44 @@ ul {
   padding-top: 30px;
 }
 
-.description p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px gray;
-  text-align: center;
-  background-color: #8e9cca;
+.description {
   width: 50%;
-  height: 450px;
-  border-radius: 10px;
-  margin-left: 25%;
-  margin-top: 50px;
-}
-
-.trailler p {
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: solid 1px gray;
+  margin: auto;
+  backdrop-filter: blur(5px);
+  height: auto;
+  margin-top: 2%;
   text-align: center;
-  background-color: #8e9cca;
-  width: 80%;
-  height: 390px;
-  border-radius: 10px;
-  margin-left: 10%;
-  margin-top: 50px;
-  margin-bottom: 70px;
+  height: auto;
+  color: wheat;
+  padding: 2%;
+  border-radius: 20px;
+}
+.description p {
+  font-size: 1.3rem;
 }
 
-/* Responsive Fichier Jeu */
+section {
+  background-color: #414141;
+  background-image: url("../img/polygon-scatter-haikei.png");
+  padding: 3% 0% 3% 0%;
+  margin: auto;
+  color: wheat;
+}
+iframe {
+  display: block;
+  margin: auto;
+}
+.img-size {
+  height: 400px;
+  width: 300px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 2%;
+  font-size: 2rem;
+}
 
 /* Media 1571 */
 
@@ -147,20 +183,14 @@ ul {
     align-items: center;
   }
 
-  .description p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .trailler p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .mobile-accueil {
     margin-left: 90px;
+  }
+  iframe {
+    width: 80%;
+  }
+  .description {
+    width: 80%;
   }
 }
 
@@ -194,35 +224,12 @@ ul {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
-
-  .description p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 400px;
-    height: 390px;
-    border-radius: 20px;
+  iframe {
+    width: 80%;
+    height: 300px;
   }
-
   .description {
-    margin-left: -10%;
-  }
-
-  .trailler p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 550px;
-    height: 390px;
-    border-radius: 20px;
-  }
-
-  .trailler {
-    padding-right: 50%;
+    width: 80%;
   }
 }
 
@@ -254,35 +261,12 @@ ul {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
-
-  .description p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 300px;
-    height: 390px;
-    border-radius: 20px;
+  iframe {
+    width: 80%;
+    height: 300px;
   }
-
   .description {
-    padding-right: -30%;
-  }
-
-  .trailler p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 300px;
-    height: 390px;
-    border-radius: 20px;
-  }
-
-  .trailler {
-    padding-right: -30%;
+    width: 80%;
   }
 }
 
@@ -323,32 +307,20 @@ ul {
     margin-bottom: 20px;
   }
 
-  .description p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
   .description {
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  .trailler p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  .trailler {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
   .mobile-accueil {
     margin-left: 90px;
+  }
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+  .description {
+    width: 90%;
   }
 }
 
@@ -358,11 +330,9 @@ ul {
   .titre-jeu {
     margin-top: 30px;
   }
-
   .img-2 img {
     display: none;
   }
-
   .text p {
     margin-bottom: 20px;
     display: flex;
@@ -383,33 +353,14 @@ ul {
     border-bottom-right-radius: 20px;
   }
 
-  .description p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 300px;
-    height: 390px;
-    border-radius: 20px;
-  }
-
   .description {
     padding-right: 80%;
   }
-
-  .trailler p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 300px;
-    height: 390px;
-    border-radius: 20px;
+  iframe {
+    width: 100%;
+    height: 300px;
   }
-
-  .trailler {
-    padding-right: 50%;
+  .description {
+    width: 100%;
   }
 }

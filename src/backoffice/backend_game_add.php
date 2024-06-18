@@ -12,7 +12,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['roles'] !== 'ROLE_ADMIN') {
 // Connexion à la BDD
 require_once("../include/connect.php");
 
-// Fonction pour générer une chaîne de caractères aléatoire
+// Fonction pour générer une chaîne de caractères aléatoire PAR ROBERTO
 function generateRandomString($length = 20) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -51,11 +51,11 @@ if ($_POST) {
             $xbox = isset($_POST["xbox"]) ? 1 : 0;
             $switch = isset($_POST["switch"]) ? 1 : 0;
 
-            // Gestion des images
+            // Gestion des images PAR ROBERTO
             $uploadDir = '../img/jeu/';
             $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
 
-            // Gestion de picture_right
+            // Gestion de picture_right PAR ROBERTO
             $imageFileType = strtolower(pathinfo($_FILES['picture_right']['name'], PATHINFO_EXTENSION));
             if (in_array($imageFileType, $allowedTypes)) {
                 $newFileNameRight = generateRandomString(20) . '.' . $imageFileType;
@@ -65,7 +65,7 @@ if ($_POST) {
                 throw new Exception("Format de l'image droite non autorisé.");
             }
 
-            // Gestion de picture_left
+            // Gestion de picture_left PAR ROBERTO
             $imageFileType = strtolower(pathinfo($_FILES['picture_left']['name'], PATHINFO_EXTENSION));
             if (in_array($imageFileType, $allowedTypes)) {
                 $newFileNameLeft = generateRandomString(20) . '.' . $imageFileType;
@@ -139,8 +139,8 @@ if ($_POST) {
     <title>Backoffice ajouter un jeu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../css/navbar.css" rel="stylesheet">
-    <link href="../css/footer.css" rel="stylesheet">
+    <link href="../css/nav-footer.css" rel="stylesheet">
+
 
 </head>
 

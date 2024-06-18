@@ -48,6 +48,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </div>
     </main>
+    <section>
+
+    </section>
     <?php include_once("./include/footer.php"); ?>
     <script src="script.js"></script>
 </body>

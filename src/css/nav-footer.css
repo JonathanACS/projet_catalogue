@@ -1,3 +1,20 @@
+:root {
+  --font-regular: "barlow-regular";
+  --font-italic: "barlow-italic";
+  --font-bold: "barlow-bold";
+}
+@font-face {
+  font-family: "barlow-regular";
+  src: url(../css/font/barlow/Barlow-Regular.ttf);
+}
+@font-face {
+  font-family: "barlow-italic";
+  src: url(../css/font/barlow/Barlow-Italic.ttf);
+}
+@font-face {
+  font-family: "barlow-bold";
+  src: url(../css/font/barlow/Barlow-Bold.ttf);
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -34,6 +51,10 @@ a {
 ul {
   list-style-type: none;
   text-decoration: none;
+}
+p,
+a {
+  font-family: var(--font-regular);
 }
 
 /* Fichier Navbar */
@@ -175,7 +196,7 @@ ul {
 
 footer {
   bottom: 0;
-  background-color: #a78bfa;
+  background-color: #7599ac;
   display: flex;
   justify-content: space-around;
   align-items: center;
