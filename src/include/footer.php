@@ -13,7 +13,7 @@
     </ul>
 
     <figure class="logo-footer">
-        <img src="../img/manette.png" alt="img-footer">
+        <img src="../img/manette.png" alt="img-footer" border-radius="50%" height="80px" width="80px">
     </figure>
 
 </footer>

@@ -1,10 +1,12 @@
     <div class="mobile-nav">
-        <span class="material-symbols-outlined" onclick="toggler()" id="toggler">menu</span>
+        <img src="../img/menu-burger.png" alt="menu-burger-img" id="menu-open" width="30px" height="30px">
+        <img src="../img/close-burger.png" alt="close-burger-img" id="menu-close" style="display:none;" width="30px"
+            height="30px">
         <div class="mobile-accueil">
             <a href="../index.php">Accueil</a>
         </div>
     </div>
-    <div class="menu">
+    <div class="menu" id="mobile-menu">
 
         <div class="container-nav">
 

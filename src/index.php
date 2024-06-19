@@ -26,11 +26,11 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <link href="./css/header.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="body-index">
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
         <figure>
-            <img src="../img/header-jeu.jpeg" alt="">
+            <img src="../img/header-jeu.jpeg" alt="header-jeu-img">
         </figure>
     </header>
     <main>
@@ -48,8 +48,30 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </div>
     </main>
-    <?php include_once("./include/footer.php"); ?>
+
+    <div class="carousel">
+        <button class="btn" id="prev"><img src="../img/fleche-gauche.png" alt="carousel-gauche" width="30px"
+                height="30px"></button>
+        <button class="btn" id="next"><img src="../img/fleche-droite.png" alt="carousel-droit" width="30px"
+                height="30px"></button>
+        <ul>
+            <li class="slide">
+                <img src="../img/jeu-idée/h-9.jpg" alt="img-1">
+            </li>
+            <li class="slide active">
+                <img src="../img/jeu/58Oi9SIfYHx8wFtbBZxs.jpg" alt="img-2">
+            </li>
+            <li class="slide">
+                <img src="../img/jeu/IhlfYzEzNM34M6pTIo5e.jpg" alt="img-3">
+            </li>
+        </ul>
+    </div>
+
     <script src="script.js"></script>
+    <script src="index.js"></script>
+
+    <?php include_once("./include/footer.php"); ?>
+
 </body>
 
 </html>

@@ -1,11 +1,21 @@
-function toggler() {
-  const icon = document.querySelector("#toggler");
-  const menu = document.querySelector(".menu");
-  if (icon.innerHTML === "menu") {
-    icon.innerHTML = "close";
-    menu.style.transform = "translateX(0%)";
-  } else {
-    icon.innerHTML = "menu";
-    menu.style.transform = "translateX(-100%)";
+/* Menu burger */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuOpen = document.getElementById("menu-open");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuOpen && menuClose && mobileMenu) {
+    menuOpen.addEventListener("click", function () {
+      mobileMenu.classList.add("show");
+      menuOpen.style.display = "none";
+      menuClose.style.display = "block";
+    });
+
+    menuClose.addEventListener("click", function () {
+      mobileMenu.classList.remove("show");
+      menuOpen.style.display = "block";
+      menuClose.style.display = "none";
+    });
   }
-}
+});

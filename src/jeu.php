@@ -41,7 +41,7 @@ if (isset($_GET["id"])) {
 ?>
 
         <figure>
-            <img src="../img/header-jeu.jpeg" alt="">
+            <img src="../img/header-jeu.jpeg" alt="header-img">
         </figure>
 
     </header>
@@ -98,7 +98,6 @@ if (isset($_GET["id"])) {
         <?php
     include_once("./include/footer.php");
 ?>
-        <script src="script.js"></script>
 
 </body>
 
