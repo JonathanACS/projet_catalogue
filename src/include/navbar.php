@@ -16,7 +16,7 @@
 
             <ul class="menu-nav">
                 <li class="has-sous-nav">
-                    <a href="categories.php?categories=categories">categories</a>
+                    <a>categories</a>
 
                     <ul class="sous-nav">
 

@@ -42,17 +42,17 @@ if (isset($_GET["id"])) {
 
     <header>
         <?php include_once("./include/navbar.php");?>
-        <figure>
+        <figure class="header">
+            <h1 class="titre-jeu-test"><?= $game["title_game"]?></h1>
             <img class="header-jeu" src="<?= $game["picture_header"] ?>" alt="<?= $game["picture_header_alt"]?>">
         </figure>
     </header>
 
     <main>
-        <h1 class="titre-jeu"><?= $game["title_game"]?></h1>
         <div class="container-jeu">
             <div class="img-text">
                 <div class="text">
-                    <p><?= $game["text_game"]?></p>
+                    <p><?= $game["desc_game"]?></p>
                 </div>
                 <div class="img-1">
                     <figure>
@@ -67,11 +67,7 @@ if (isset($_GET["id"])) {
                     </figure>
                 </div>
                 <div class="plateforme">
-                    <p>Disponible sur: <br><br> PC <br><br>
-                        PS4/PS5 <br><br>
-                        SWITCH <br><br>
-                        XBOX
-                    </p>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -82,7 +78,7 @@ if (isset($_GET["id"])) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <div class="description">
-            <p><?= $game["desc_game"]?></p>
+            <p><?= $game["text_game"]?></p>
         </div>
     </section>
 

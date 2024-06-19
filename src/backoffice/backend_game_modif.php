@@ -239,18 +239,18 @@ if ($_POST) {
 
                 <div class="row">
                     <div class="col">
-                        <label class="form-label fw-bolder" for="text_game">Texte du jeu</label>
-                        <textarea class="form-control" id="text_game"
-                            name="text_game"><?=$game['text_game']?>"></textarea>
+                        <label class="form-label fw-bolder" for="desc_game">petit text</label>
+                        <textarea class="form-control" id="desc_game"
+                            name="desc_game"><?=$game['desc_game']?></textarea>
+
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label class="form-label fw-bolder" for="desc_game">Description du
-                            jeu</label>
-                        <textarea class="form-control" id="desc_game"
-                            name="desc_game"><?=$game['desc_game']?></textarea>
+                        <label class="form-label fw-bolder" for="text_game">long text</label>
+                        <textarea class="form-control" id="text_game"
+                            name="text_game"><?=$game['text_game']?>"></textarea>
                     </div>
                 </div>
 

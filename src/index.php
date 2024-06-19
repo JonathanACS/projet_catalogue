@@ -31,23 +31,29 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
         <figure>
-            <img src="../img/header-jeu.jpeg" alt="header-jeu-img">
+            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
         </figure>
     </header>
     <main>
         <h1>Voici notre selection!</h1>
         <div class="jeu-container">
-            <?php foreach($result as $game): ?>
+            <?php 
+                $count = 0;
+                foreach ($result as $game):
+                if ($count >= 12) break;
+                ?>
             <article class="card">
                 <img class="card-img" src="<?= $game["picture_right"] ?>" alt="<?= $game["picture_right_alt"] ?>">
                 <div class="card-body">
                     <h3 class="card-title"><?= $game["title_game"] ?></h3>
-                    <p class="card-sub"><?= $game["text_game"]?></p>
-                    <a class="card-btn" href="jeu.php?id=<?=$game["id_game"]?>">Voir</a>
+                    <p class="card-sub"><?= $game["desc_game"] ?></p>
+                    <a class="card-btn" href="jeu.php?id=<?= $game["id_game"] ?>">Voir</a>
                 </div>
-
             </article>
-            <?php endforeach; ?>
+            <?php 
+            $count++;
+            endforeach; 
+            ?>
         </div>
     </main>
 

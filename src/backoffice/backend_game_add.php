@@ -200,10 +200,10 @@ if ($_POST) {
                     <input class="form-control" type="text" id="picture_header_alt" name="picture_header_alt" required>
                 </div>
                 <div class="col">
-                    <label class="form-label" for="desc_game">Description du jeu</label>
-                    <textarea class="form-control" id="desc_game" name="desc_game" required></textarea>
-                    <label class="form-label" for="text_game">Description du jeu</label>
+                    <label class="form-label" for="text_game">long texte</label>
                     <textarea class="form-control" id="text_game" name="text_game" required></textarea>
+                    <label class="form-label" for="desc_game">petit text</label>
+                    <textarea class="form-control" id="desc_game" name="desc_game" required></textarea>
                 </div>
                 <div class="col">
                     <label class="form-label" for="pc">PC</label>
