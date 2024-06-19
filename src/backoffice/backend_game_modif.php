@@ -276,7 +276,7 @@ if ($_POST) {
             </form>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 
     <?php include_once("../include/footer.php") ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

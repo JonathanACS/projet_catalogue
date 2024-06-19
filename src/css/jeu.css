@@ -3,18 +3,22 @@
   --font-italic: "barlow-italic";
   --font-bold: "barlow-bold";
 }
+
 @font-face {
   font-family: "barlow-regular";
   src: url(../css/font/barlow/Barlow-Regular.ttf);
 }
+
 @font-face {
   font-family: "barlow-italic";
   src: url(../css/font/barlow/Barlow-Italic.ttf);
 }
+
 @font-face {
   font-family: "barlow-bold";
   src: url(../css/font/barlow/Barlow-Bold.ttf);
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -41,15 +45,18 @@ video {
   display: block;
   max-width: 100%;
 }
+
 a {
   list-style-type: none;
   text-decoration: none;
   color: black;
 }
+
 ul {
   list-style-type: none;
   text-decoration: none;
 }
+
 p,
 a,
 h1,
@@ -63,16 +70,16 @@ h2 {
   background-size: cover;
   object-fit: cover;
 }
+
 main {
   background: rgb(245, 222, 179);
-  background: radial-gradient(
-    circle,
-    rgba(245, 222, 179, 0.3981967787114846) 16%,
-    rgba(245, 222, 179, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(245, 222, 179, 0.3981967787114846) 16%,
+      rgba(245, 222, 179, 1) 100%);
   padding-top: 5%;
   padding-bottom: 5%;
 }
+
 .titre-jeu {
   text-align: center;
   font-size: 30px;
@@ -85,6 +92,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .img-size {
   width: 325px;
   height: 425px;
@@ -151,6 +159,7 @@ main {
   padding: 2%;
   border-radius: 20px;
 }
+
 .description p {
   font-size: 1.3rem;
 }
@@ -162,6 +171,7 @@ section {
   margin: auto;
   color: #f5deb3d2;
 }
+
 iframe {
   display: block;
   margin: auto;
@@ -169,10 +179,12 @@ iframe {
   box-shadow: rgba(245, 222, 179, 0.473) 0px 10px 36px 0px,
     rgba(245, 222, 179, 0.5) 0px 0px 0px 1px;
 }
+
 .img-size {
   height: 400px;
   width: 300px;
 }
+
 h2 {
   text-align: center;
   margin-bottom: 2%;
@@ -197,9 +209,11 @@ h2 {
   .mobile-accueil {
     margin-left: 90px;
   }
+
   iframe {
     width: 80%;
   }
+
   .description {
     width: 80%;
   }
@@ -235,10 +249,12 @@ h2 {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
+
   iframe {
     width: 80%;
     height: 300px;
   }
+
   .description {
     width: 80%;
   }
@@ -272,68 +288,18 @@ h2 {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
+
   iframe {
-    width: 80%;
+    width: 70%;
     height: 300px;
+    border: none;
   }
+
   .description {
     width: 80%;
   }
 }
 
-/* Media 603 */
-
-@media (min-width: 350px) and (max-width: 603px) {
-  .img-2 {
-    display: none;
-  }
-
-  .text p {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
-  .img-1 img {
-    margin-top: 50px;
-  }
-
-  .plateforme p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  .plateforme {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  .description {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .mobile-accueil {
-    margin-left: 90px;
-  }
-  iframe {
-    width: 100%;
-    height: 300px;
-  }
-  .description {
-    width: 90%;
-  }
-}
 
 /* Media 349 */
 
@@ -341,9 +307,11 @@ h2 {
   .titre-jeu {
     margin-top: 30px;
   }
+
   .img-2 img {
     display: none;
   }
+
   .text p {
     margin-bottom: 20px;
     display: flex;
@@ -367,10 +335,12 @@ h2 {
   .description {
     padding-right: 80%;
   }
+
   iframe {
-    width: 100%;
+    width: 98%;
     height: 300px;
   }
+
   .description {
     width: 100%;
   }

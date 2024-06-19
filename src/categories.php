@@ -1,8 +1,7 @@
 <?php
 
-    session_start();
-    require_once("include/connect.php");
-
+session_start();
+require_once("include/connect.php");
 
 // Initialiser $result à un tableau vide par défaut
 $result = [];

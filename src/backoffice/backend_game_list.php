@@ -85,7 +85,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 
     <?php include_once("../include/footer.php")?>
 </body>
