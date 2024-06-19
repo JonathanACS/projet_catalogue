@@ -46,7 +46,7 @@ if (!empty($result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title><?= $plateforme ?></title>
     <link href="/css/categories.css" rel="stylesheet">
     <link href="/css/nav-footer.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">

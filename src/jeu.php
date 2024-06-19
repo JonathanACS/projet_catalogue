@@ -35,7 +35,7 @@ if (isset($_GET["id"])) {
     <link href="./css/jeu.css" rel="stylesheet">
     <link href="./css/nav-footer.css" rel="stylesheet">
     <link href="./css/header.css" rel="stylesheet">
-    <title>Jeu</title>
+    <title><?= $game["title_game"]?></title>
 </head>
 
 <body>
