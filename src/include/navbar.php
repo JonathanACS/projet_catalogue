@@ -20,10 +20,10 @@
 
                     <ul class="sous-nav">
 
-                        <li><a href="categories.php?categories=pc">pc</a></li>
-                        <li><a href="categories.php?categories=playstation">playstation</a></li>
-                        <li><a href="categories.php?categories=xbox">xbox</a></li>
-                        <li><a href="categories.php?categories=switch">switch</a></li>
+                        <li><a href="categories.php?plateforme=pc">pc</a></li>
+                        <li><a href="categories.php?plateforme=playstation">playstation</a></li>
+                        <li><a href="categories.php?plateforme=xbox">xbox</a></li>
+                        <li><a href="categories.php?plateforme=switch">switch</a></li>
                     </ul>
                 </li>
                 <?php if(!isset($_SESSION["user"])): ?>

@@ -41,13 +41,11 @@ video {
   display: block;
   max-width: 100%;
 }
-
 a {
   list-style-type: none;
   text-decoration: none;
   color: black;
 }
-
 ul {
   list-style-type: none;
   text-decoration: none;
@@ -60,9 +58,18 @@ h2 {
 }
 
 /* Fichie Jeu */
-
+.header-jeu {
+  width: 100%;
+  background-size: cover;
+  object-fit: cover;
+}
 main {
-  background-color: #e1dfe2;
+  background: rgb(245, 222, 179);
+  background: radial-gradient(
+    circle,
+    rgba(245, 222, 179, 0.3981967787114846) 16%,
+    rgba(245, 222, 179, 1) 100%
+  );
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -153,7 +160,7 @@ section {
   background-image: url("../img/polygon-scatter-haikei.png");
   padding: 3% 0% 3% 0%;
   margin: auto;
-  color: rgba(245, 222, 179, 0.822);
+  color: #f5deb3d2;
 }
 iframe {
   display: block;
