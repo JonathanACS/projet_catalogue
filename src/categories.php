@@ -3,23 +3,6 @@
     session_start();
     require_once("include/connect.php");
 
-    // if (isset($_GET["categories"])) 
-    // $categories = $_GET["categories"];
-    // $sql = "SELECT * FROM `jeux` ORDER BY `jeux`.`id_game` DESC ";
-    // $query = $db->prepare($sql);
-    // $query->execute();
-    // $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    // Vérifier si une plateforme a été sélectionnée
-
-// if (isset($_GET['categories']) && $_GET['categories'] != '') {
-//     $categories = $_GET['categories'];
-
-//     $sql = "SELECT * 
-//         FROM jeux 
-//         JOIN plateforme ON jeux.id_game = plateforme.id_game 
-//         WHERE plateforme.nom = ?";
-
-// }
 
 // Initialiser $result à un tableau vide par défaut
 $result = [];
@@ -48,22 +31,12 @@ if (isset($_GET['plateforme']) && $_GET['plateforme'] != '') {
         $result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-// Maintenant $result contient tous les jeux récupérés pour la plateforme sélectionnée
-// Vous pouvez utiliser $result plus tard dans votre application pour afficher les jeux, par exemple :
-
 if (!empty($result)) {
-    // Utiliser $result pour afficher les jeux, par exemple :
     foreach ($result as $row) {
-        // Traitement ou utilisation des données
-        // Vous pouvez manipuler les données comme vous le souhaitez ici
-        // Par exemple, ajouter à un autre tableau, ou faire d'autres traitements
     }
 } else {
     header("Location: index.php");
 }
-
-
 ?>
 
 <!DOCTYPE html>
