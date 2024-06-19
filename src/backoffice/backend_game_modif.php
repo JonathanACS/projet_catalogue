@@ -43,7 +43,7 @@ if ($_POST) {
     // Validation du formulaire
     if (
         isset($_POST["id_game"], $_POST["title_game"], $_POST["text_game"], $_POST["picture_right_alt"],
-        $_POST["picture_left_alt"], $_POST["desc_game"], $_POST["trailler"], $_POST["id_plateforme"])
+        $_POST["picture_left_alt"], $_POST["picture_header_alt"], $_POST["desc_game"], $_POST["trailler"], $_POST["id_plateforme"])
     ) {
         // Nettoyage des données du formulaire
         $id_game = strip_tags($_POST["id_game"]);
@@ -51,6 +51,7 @@ if ($_POST) {
         $text_game = strip_tags($_POST["text_game"]);
         $picture_right_alt = strip_tags($_POST["picture_right_alt"]);
         $picture_left_alt = strip_tags($_POST["picture_left_alt"]);
+        $picture_header_alt = strip_tags($_POST["picture_header_alt"]);
         $desc_game = strip_tags($_POST["desc_game"]);
         $trailler = strip_tags($_POST["trailler"]);
         $id_plateforme = strip_tags($_POST["id_plateforme"]);
@@ -90,8 +91,23 @@ if ($_POST) {
             $picture_left = $game['picture_left'];
         }
 
+        if (isset($_FILES['picture_header']) && $_FILES['picture_header']['error'] == 0) {
+            $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+            if (in_array($_FILES['picture_header']['type'], $allowed_types)) {
+                // Supprimer l'ancienne image
+                if (file_exists($game['picture_header'])) {
+                    unlink($game['picture_header']);
+                }
+                // Déplacer la nouvelle image
+                $picture_header = '../img/jeu/' . basename($_FILES['picture_header']['name']);
+                move_uploaded_file($_FILES['picture_header']['tmp_name'], $picture_header);
+            }
+        } else {
+            $picture_header = $game['picture_header'];
+        }
+
         // Requête SQL pour mettre à jour les informations dans la base de données
-        $sql = "UPDATE jeux SET title_game=:title_game, text_game=:text_game, picture_right=:picture_right, picture_right_alt=:picture_right_alt, picture_left=:picture_left, picture_left_alt=:picture_left_alt, desc_game=:desc_game, trailler=:trailler WHERE id_game=:id_game";
+        $sql = "UPDATE jeux SET title_game=:title_game, text_game=:text_game, picture_right=:picture_right, picture_right_alt=:picture_right_alt, picture_left=:picture_left, picture_left_alt=:picture_left_alt, desc_game=:desc_game, trailler=:trailler, picture_header=:picture_header, picture_header_alt=:picture_header_alt WHERE id_game=:id_game";
         $query = $db->prepare($sql);
         $query->bindValue(':id_game', $id_game, PDO::PARAM_INT);
         $query->bindValue(':title_game', $title_game, PDO::PARAM_STR);
@@ -102,6 +118,8 @@ if ($_POST) {
         $query->bindValue(':picture_left_alt', $picture_left_alt, PDO::PARAM_STR);
         $query->bindValue(':desc_game', $desc_game, PDO::PARAM_STR);
         $query->bindValue(':trailler', $trailler, PDO::PARAM_STR);
+        $query->bindValue(':picture_header', $picture_header, PDO::PARAM_STR);
+        $query->bindValue(':picture_header_alt', $picture_header_alt, PDO::PARAM_STR);
         $query->execute();
 
         // Requête SQL pour mettre à jour la plateforme
@@ -134,20 +152,25 @@ if ($_POST) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/nav-footer.css" rel="stylesheet">
+    <link href="../css/backend.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <?php include_once("../include/navbar.php") ?>
+    <header>
+        <?php include_once("../include/navbar.php") ?>
+    </header>
     <section class="p-3 mb-2 bg-gradient-secondary text-black">
         <div class="text-center">
             <h1>Modifier un jeu</h1>
             <a class="btn btn-secondary p-2" href="#" onclick="history.go(-1)">Retour</a>
         </div>
-
         <div class="container d-flex flex-wrap justify-content-center container-modif">
             <div class="mw-25 w-50 p-2" style="width: 18rem;">
                 <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
+                <figure>
+                    <img src="<?= $game["picture_header"]?>" alt="<?= $game["picture_header_alt"]?>">
+                </figure>
                 <div class="d-flex justify-content-center">
                     <img class="card picture-game-list-size" src="<?= $game["picture_left"] ?>"
                         alt="<?= $game["picture_left_alt"]?>">
@@ -155,8 +178,7 @@ if ($_POST) {
                         alt="<?= $game["picture_right_alt"]?>">
                 </div>
                 <div class="card-body">
-                    <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
+                    <p class="card-text p-3"><?= $game["text_game"] ?></p>
                 </div>
                 <div class="card-body ms-3">
                     <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
@@ -202,6 +224,18 @@ if ($_POST) {
                             name="picture_left_alt" value="<?=$game['picture_left_alt']?>">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label fw-bolder" for="picture_header">Lien image
+                            header</label>
+                        <input class="form-control text-center" type="file" id="picture_header" name="picture_header"
+                            value="<?=$game['picture_header']?>">
+                        <label class="form-label fw-bolder" for="picture_header_alt">ALT image
+                            header</label>
+                        <input class="form-control text-center" type="text" id="picture_header_alt"
+                            name="picture_header_alt" value="<?=$game['picture_header_alt']?>">
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col">
@@ -220,17 +254,10 @@ if ($_POST) {
                     </div>
                 </div>
 
-
-
-
-
-
-
-
                 <div class="col">
                     <label class="form-label text-uppercase fw-bolder" for="pc">PC</label>
                     <input class="form-check-input" type="checkbox" id="pc" name="pc"
-                        <?=$plateforme['pc'] ? 'checked' : ''?>>
+                        <?=$plateforme['pc'] ? 'checked' : ''?>><br>
                     <label class="form-label text-uppercase fw-bolder" for="playstation">PlayStation</label>
                     <input class="form-check-input" type="checkbox" id="playstation" name="playstation"
                         <?=$plateforme['playstation'] ? 'checked' : ''?>><br>

@@ -21,9 +21,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/nav-footer.css" rel="stylesheet">
-    <link href="./css/header.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/nav-footer.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
 </head>
 
 <body class="body-index">
@@ -34,6 +34,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </figure>
     </header>
     <main>
+        <h1>Voici notre selection!</h1>
         <div class="jeu-container">
             <?php foreach($result as $game): ?>
             <article class="card">

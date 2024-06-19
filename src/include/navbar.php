@@ -16,12 +16,14 @@
 
             <ul class="menu-nav">
                 <li class="has-sous-nav">
-                    <a href="">Catégories</a>
+                    <a href="categories.php?categories=categories">categories</a>
+
                     <ul class="sous-nav">
-                        <li><a href="categories.php">PC</a></li>
-                        <li><a href="categories.php">PS4/PS5</a></li>
-                        <li><a href="categories.php">XBOX</a></li>
-                        <li><a href="categories.php">SWITCH</a></li>
+
+                        <li><a href="categories.php?categories=pc">pc</a></li>
+                        <li><a href="categories.php?categories=playstation">playstation</a></li>
+                        <li><a href="categories.php?categories=xbox">xbox</a></li>
+                        <li><a href="categories.php?categories=switch">switch</a></li>
                     </ul>
                 </li>
                 <?php if(!isset($_SESSION["user"])): ?>
@@ -36,9 +38,3 @@
         </div>
 
     </div>
-
-    <script src="script.js"></script>
-
-    </body>
-
-    </html>

@@ -14,11 +14,17 @@ if (isset($_GET["id"])) {
     $query->execute();
     $game = $query->fetch(PDO::FETCH_ASSOC);
 
-} else {
-    $_SESSION["erreur"] = "Jeu introuvable";
-    header("Location: index.php");
-    exit;
-}
+        //verification id jeu
+        if(!$game){
+            $_SESSION["erreur"] = "Vous êtes allé trop loin, aucun jeu ne correspond!";
+            header("Location: index.php");
+            exit();
+        }
+    }else{
+        $_SESSION["erreur"] = "La page demandée n'existe pas, veuillez réessayer plus tard";
+        header("Location: index.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,70 +41,53 @@ if (isset($_GET["id"])) {
 <body>
 
     <header class="header-jeu">
-
-        <?php
-    include_once("./include/navbar.php");
-?>
-
+        <?php include_once("./include/navbar.php");?>
         <figure>
-            <img src="../img/header-jeu.jpeg" alt="header-img">
+            <img class="header-jeu" src="<?= $game["picture_header"] ?>" alt="<?= $game["picture_header_alt"]?>">
         </figure>
-
     </header>
 
-
-    <h1 class="titre-jeu"><?= $game["title_game"]?></h1>
-
-    <div class="container-jeu">
-
-        <div class="img-text">
-
-            <div class="text">
-                <p>Texte explicatif sur le jeu</p>
+    <main>
+        <h1 class="titre-jeu"><?= $game["title_game"]?></h1>
+        <div class="container-jeu">
+            <div class="img-text">
+                <div class="text">
+                    <p><?= $game["text_game"]?></p>
+                </div>
+                <div class="img-1">
+                    <figure>
+                        <img class="img-size" src="<?= $game["picture_right"]?>" alt="<?= $game["picture_right_alt"]?>">
+                    </figure>
+                </div>
             </div>
-
-            <div class="img-1">
-                <figure>
-                    <img src="../img/exemple.png" alt="">
-                </figure>
-            </div>
-
-        </div>
-
-        <div class="img-plateforme">
-
-            <div class="img-2">
-                <figure>
-                    <img src="../img/exemple.png" alt="Image-2">
-                </figure>
-            </div>
-
-            <div class="plateforme">
-                <p>Disponible sur: <br><br> PC <br><br>
-                    PS4/PS5 <br><br>
-                    SWITCH <br><br>
-                    XBOX
-                </p>
-
+            <div class="img-plateforme">
+                <div class="img-2">
+                    <figure>
+                        <img class="img-size" src="<?= $game["picture_left"]?>" alt="<?= $game["picture_left_alt"]?>">
+                    </figure>
+                </div>
+                <div class="plateforme">
+                    <p>Disponible sur: <br><br> PC <br><br>
+                        PS4/PS5 <br><br>
+                        SWITCH <br><br>
+                        XBOX
+                    </p>
+                </div>
             </div>
         </div>
-
-        <div class="description">
-
-            <p>Déscription du Jeu</p>
-
-        </div>
-
-        <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player" frameborder="0"
+    </main>
+    <section>
+        <h2>Regarder le trailler de <?= $game["title_game"]?></h2>
+        <iframe width="50%" height="500px" src="<?= $game["trailler"]?>" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="description">
+            <p><?= $game["desc_game"]?></p>
+        </div>
+    </section>
 
-        <script src="script.js"></script>
-
-        <?php
-    include_once("./include/footer.php");
-?>
-
+    <?php include_once("./include/footer.php");?>
+    <script src="script.js"></script>
 </body>
 
 </html>
