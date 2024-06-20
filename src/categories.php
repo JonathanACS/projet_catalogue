@@ -56,7 +56,7 @@ if (!empty($result)) {
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
         <figure>
-            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
+            <img class="header-jeu" src="../img/header2.jpg" alt="firewatch">
         </figure>
     </header>
     <main>
