@@ -13,8 +13,8 @@ $query = $db->prepare($sql);
 $query->execute();
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -31,7 +31,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
         <figure>
-            <img class="header-jeu" src="../img/header-jeu.jpeg" alt="">
+            <img class="header-jeu" src="../img/header.jpg" alt="">
         </figure>
     </header>
     <main>

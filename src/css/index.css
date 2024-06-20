@@ -36,6 +36,7 @@
 
 body {
   min-height: 100vh;
+  background: #DAD3BE;
 }
 
 img,
@@ -69,12 +70,13 @@ h3 {
 
 main {
   padding: 2% 0%;
-  background: #f1f1f1;
+  background: #DDDCC6;
 }
 
 .header-jeu {
   background-size: cover;
   object-fit: cover;
+  top: 0%;
 }
 
 h1 {
@@ -171,6 +173,7 @@ section {
   overflow-x: auto;
   margin-bottom: 30px;
   scrollbar-width: none;
+  background: #DAD3BE;
   grid-template-columns: repeat(12, 1fr);
 }
 
@@ -188,6 +191,7 @@ section {
   padding-top: 2%;
   max-width: 1200px;
   margin: 0 auto;
+  background: #DAD3BE;
 }
 
 .slider-wrapper {

@@ -3,18 +3,22 @@
   --font-italic: "barlow-italic";
   --font-bold: "barlow-bold";
 }
+
 @font-face {
   font-family: "barlow-regular";
   src: url(../css/font/barlow/Barlow-Regular.ttf);
 }
+
 @font-face {
   font-family: "barlow-italic";
   src: url(../css/font/barlow/Barlow-Italic.ttf);
 }
+
 @font-face {
   font-family: "barlow-bold";
   src: url(../css/font/barlow/Barlow-Bold.ttf);
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -52,12 +56,16 @@ ul {
   list-style-type: none;
   text-decoration: none;
 }
+
 p,
 a {
   font-family: var(--font-regular);
 }
 
 /* Fichier Navbar */
+.pseudo {
+  color: #DAD3BE;
+}
 
 .menu {
   position: sticky;
@@ -65,8 +73,7 @@ a {
   display: block;
   z-index: 999;
   padding: 20px;
-  background-color: #7599ac;
-  border-bottom: solid 1px;
+  background-color: #6B8A7A;
   font-size: 20px;
 }
 
@@ -100,9 +107,8 @@ a {
   left: 15px;
   width: 200px;
   width: max-content;
-  background-color: aliceblue;
-  border: solid 1px;
-  background-color: #7599ac;
+  background-color: #6B8A7A;
+
 }
 
 .sous-nav li {
@@ -118,7 +124,7 @@ a {
 }
 
 .sous-nav li a:hover {
-  background-color: #f2f2f2;
+  background-color: #DAD3BE;
 }
 
 .has-sous-nav:hover .sous-nav {
@@ -135,7 +141,7 @@ a {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  background-color: #7599ac;
+  background-color: #6B8A7A;
   display: none;
 }
 
@@ -147,7 +153,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #333;
+    background-color: #6B8A7A;
     color: #fff;
   }
 
@@ -161,8 +167,8 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    height: 50%;
+    background-color: #6b8a7a7e;
     color: white;
     z-index: 1000;
     padding-top: 50px;
@@ -252,7 +258,7 @@ a {
 
 footer {
   bottom: 0;
-  background-color: #7599ac;
+  background-color: #6B8A7A;
   display: flex;
   justify-content: space-around;
   align-items: center;
