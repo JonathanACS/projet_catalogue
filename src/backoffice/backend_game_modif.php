@@ -153,12 +153,17 @@ if ($_POST) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/nav-footer.css" rel="stylesheet">
     <link href="../css/backend.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <?php include_once("../include/navbar.php") ?>
+    <header class="header-index">
+        <?php include_once("../include/navbar.php"); ?>
+        <figure class="header">
+            <img class="header-jeu" src="../img/header.jpg" alt="firewatch">
+            <p class="titre-jeu-test">Modifier un jeu</p>
+        </figure>
     </header>
     <section class="p-3 mb-2 bg-gradient-secondary text-black">
         <div class="text-center">

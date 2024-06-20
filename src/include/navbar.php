@@ -27,19 +27,29 @@
                 </li>
 
                 <?php if(!isset($_SESSION["user"])): ?>
+
                 <li class="color-lien"><a href="../inscription.php">Inscription</a></li>
                 <li class="color-lien"><a href="../login.php">Se connecter</a></li>
+
                 <?php else: ?>
+
                 <p class="bonjour">Bonjour <span class="pseudo"><?= ($_SESSION["user"]["pseudo"]) ?></span></p>
                 <li class="color-lien"><a href="../deconnexion.php">Se déconnecter</a></li>
-                <?php endif; ?>
-                <div class="lien-sous-menu">
-                    <li class="color-lien"><a href="categories.php?plateforme=pc">pc</a></li>
-                    <li class="color-lien"><a href="categories.php?plateforme=playstation">playstation</a></li>
-                    <li class="color-lien"><a href="categories.php?plateforme=xbox">xbox</a></li>
-                    <li class="color-lien"><a href="categories.php?plateforme=switch">switch</a></li>
-                </div>
+
+                <?php if(isset($_SESSION["user"]["roles"]) && $_SESSION["user"]["roles"] === "ROLE_ADMIN"): ?>
+
                 <li class="color-lien"><a href="../backoffice/backend_game_list.php">Backoffice</a></li>
+
+                <?php endif; ?>
+                <?php endif; ?>
+
+                <div class="lien-sous-menu">
+                    <li class="color-lien"><a href="../categories.php?plateforme=pc">pc</a></li>
+                    <li class="color-lien"><a href="../categories.php?plateforme=playstation">playstation</a></li>
+                    <li class="color-lien"><a href="../categories.php?plateforme=xbox">xbox</a></li>
+                    <li class="color-lien"><a href="../categories.php?plateforme=switch">switch</a></li>
+                </div>
+
             </ul>
         </div>
 

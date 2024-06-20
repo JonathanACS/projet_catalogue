@@ -34,12 +34,17 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="../css/nav-footer.css" rel="stylesheet">
     <link href="../css/backend.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <?php include_once("../include/navbar.php")?>
+    <header class="header-index">
+        <?php include_once("../include/navbar.php"); ?>
+        <figure class="header">
+            <img class="header-jeu" src="../img/header.jpg" alt="firewatch">
+            <p class="titre-jeu-test">Backoffice</p>
+        </figure>
     </header>
     <section class="text-black">
         <h1 class="text-center">Liste des jeux</h1>
