@@ -57,26 +57,38 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </main>
 
-    <div class="carousel">
-        <button class="btn" id="prev"><img src="../img/fleche-gauche.png" alt="carousel-gauche" width="30px"
-                height="30px"></button>
-        <button class="btn" id="next"><img src="../img/fleche-droite.png" alt="carousel-droit" width="30px"
-                height="30px"></button>
-        <ul>
-            <li class="slide">
-                <img src="../img/jeu-idée/h-9.jpg" alt="img-1">
-            </li>
-            <li class="slide active">
-                <img src="../img/jeu/58Oi9SIfYHx8wFtbBZxs.jpg" alt="img-2">
-            </li>
-            <li class="slide">
-                <img src="../img/jeu/IhlfYzEzNM34M6pTIo5e.jpg" alt="img-3">
-            </li>
-        </ul>
+    <div class="container">
+        <div class="slider-wrapper">
+            <img id="prev-slide" src="../img/carousel-gauche.png" alt="slide-button materiel-symbols-rounded">
+            <div class="image-list">
+
+                <?php 
+                $count = 0;
+                foreach ($result as $game):
+                if ($count >= 12) break;
+                ?>
+
+                <img class="img-carousel" src="<?= $game["picture_left"] ?>" alt="<?= $game["picture_right_alt"] ?>">
+
+                <a class="carousel-lien" href="jeu.php?id=<?=$game["id_game"]?>">Voir</a>
+
+                <?php 
+            $count++;
+            endforeach; 
+            ?>
+
+
+            </div>
+            <img id="next-slide" src="../img/carousel-droit.png" alt="slide-button materiel-symbols-rounded">
+        </div>
+        <div class="slider-scrollbar">
+            <div class="scrollbar-track">
+                <div class="scrollbar-thumb"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-    <script src="index.js"></script>
 
     <?php include_once("./include/footer.php"); ?>
 

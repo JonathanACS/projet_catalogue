@@ -88,9 +88,7 @@ a {
 .has-sous-nav {
   position: relative;
 }
-.pseudo {
-  color: wheat;
-}
+
 .menu-nav .sous-nav {
   display: flex;
   justify-content: center;
@@ -149,8 +147,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #7599ac;
-
+    background-color: #333;
     color: #fff;
   }
 
@@ -164,14 +161,12 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 40%;
-    background-color: #4b545873;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
     z-index: 1000;
     padding-top: 50px;
     transition: all 0.3s ease-in-out;
-    border: none;
-    backdrop-filter: blur(5px);
   }
 
   #mobile-menu.show {
@@ -197,7 +192,6 @@ a {
 
   .menu-nav li {
     margin: 10px 0;
-    /* border: solid 3px blue; */
   }
 
   .sous-nav {
@@ -249,7 +243,7 @@ a {
   @media (min-width: 349px) and (max-width: 520px) {
     .mobile-accueil {
       font-size: 1.5rem;
-      padding-left: 70%;
+      padding-left: 60%;
     }
   }
 }
