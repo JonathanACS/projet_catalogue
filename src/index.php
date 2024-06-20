@@ -30,8 +30,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 <body class="body-index">
     <header class="header-index">
         <?php include_once("./include/navbar.php"); ?>
-        <figure>
-            <img class="header-jeu" src="../img/header.jpg" alt="">
+        <figure class="header">
+            <img class="header-jeu" src="../img/header.jpg" alt="firewatch">
+            <p class="titre-jeu-test">Projet catalogue</p>
         </figure>
     </header>
     <main>
@@ -61,23 +62,17 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="slider-wrapper">
             <img id="prev-slide" src="../img/carousel-gauche.png" alt="slide-button materiel-symbols-rounded">
             <div class="image-list">
-
                 <?php 
-                $count = 0;
-                foreach ($result as $game):
-                if ($count >= 12) break;
+                    $count = 0;
+                    foreach ($result as $game):
+                    if ($count >= 12) break;
                 ?>
-
                 <img class="img-carousel" src="<?= $game["picture_left"] ?>" alt="<?= $game["picture_right_alt"] ?>">
-
                 <a class="carousel-lien" href="jeu.php?id=<?=$game["id_game"]?>">Voir</a>
-
                 <?php 
-            $count++;
-            endforeach; 
-            ?>
-
-
+                    $count++;
+                    endforeach; 
+                ?>
             </div>
             <img id="next-slide" src="../img/carousel-droit.png" alt="slide-button materiel-symbols-rounded">
         </div>

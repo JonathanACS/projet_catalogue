@@ -56,14 +56,16 @@ if (isset($_GET["id"])) {
                 </div>
                 <div class="img-1">
                     <figure>
-                        <img class="img-size" src="<?= $game["picture_right"]?>" alt="<?= $game["picture_right_alt"]?>">
+                        <img class="img-size img-right-border" src="<?= $game["picture_right"]?>"
+                            alt="<?= $game["picture_right_alt"]?>">
                     </figure>
                 </div>
             </div>
             <div class="img-plateforme">
                 <div class="img-2">
                     <figure>
-                        <img class="img-size" src="<?= $game["picture_left"]?>" alt="<?= $game["picture_left_alt"]?>">
+                        <img class="img-size img-left-border" src="<?= $game["picture_left"]?>"
+                            alt="<?= $game["picture_left_alt"]?>">
                     </figure>
                 </div>
                 <div class="plateforme">

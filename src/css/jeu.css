@@ -100,10 +100,7 @@ h2 {
 }
 
 main {
-  background: rgb(245, 222, 179);
-  background: radial-gradient(circle,
-      rgba(245, 222, 179, 0.3981967787114846) 16%,
-      rgba(245, 222, 179, 1) 100%);
+  background: #DDDCC6;
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -133,13 +130,23 @@ main {
   justify-content: center;
 }
 
+.img-right-border {
+  border-radius: 0% 18px 0% 0%;
+}
+
+.img-left-border {
+  border-radius: 0% 0% 0% 18px;
+}
+
 .text p,
 .plateforme p {
   text-align: center;
   border: solid 1px gray;
-  background-color: #f9f5fb;
+  background: #DDDCC6;
   text-align: center;
   font-family: var(--font-regular);
+  line-height: 150%;
+  font-size: 1.2rem;
 }
 
 .img-1 img {
@@ -250,51 +257,8 @@ h2 {
 
 /* Media 620 */
 
-@media (min-width: 601px) and (max-width: 620px) {
-  .titre-jeu {
-    margin-top: 30px;
-  }
 
-  .img-2 img {
-    display: none;
-  }
-
-  .text p {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-
-  .plateforme p {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  iframe {
-    width: 80%;
-    height: 300px;
-  }
-
-  .description {
-    width: 80%;
-  }
-
-  h2,
-  .description {
-    padding: 5% 0% 5% 0%;
-  }
-}
-
-@media (min-width: 350px) and (max-width: 600px) {
+@media (min-width: 350px) and (max-width: 604px) {
   .titre-jeu {
     margin-top: 30px;
   }
@@ -337,6 +301,11 @@ h2 {
   .description {
     padding: 5% 0% 5% 0%;
   }
+
+  .img-right-border {
+    border-radius: 0% 0% 0% 0%;
+  }
+
 }
 
 

@@ -250,7 +250,7 @@ if ($_POST) {
                     <div class="col">
                         <label class="form-label fw-bolder" for="text_game">long text</label>
                         <textarea class="form-control" id="text_game"
-                            name="text_game"><?=$game['text_game']?>"></textarea>
+                            name="text_game"><?=$game['text_game']?></textarea>
                     </div>
                 </div>
 
