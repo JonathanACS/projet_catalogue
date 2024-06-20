@@ -3,18 +3,22 @@
   --font-italic: "barlow-italic";
   --font-bold: "barlow-bold";
 }
+
 @font-face {
   font-family: "barlow-regular";
   src: url(../css/font/barlow/Barlow-Regular.ttf);
 }
+
 @font-face {
   font-family: "barlow-italic";
   src: url(../css/font/barlow/Barlow-Italic.ttf);
 }
+
 @font-face {
   font-family: "barlow-bold";
   src: url(../css/font/barlow/Barlow-Bold.ttf);
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -48,6 +52,7 @@ ul {
   list-style-type: none;
   text-decoration: none;
 }
+
 /* end reset */
 
 main {
@@ -58,12 +63,14 @@ main {
   text-align: center;
   height: 80vh;
 }
+
 h1 {
   padding: 3% 0%;
   font-size: 2rem;
   font-family: var(--font-regular);
   font-weight: bolder;
 }
+
 form {
   margin-top: 4%;
   font-family: var(--font-regular);
@@ -80,20 +87,25 @@ form {
   justify-content: space-evenly;
   flex-direction: column;
 }
+
 form::after {
   content: "";
   position: absolute;
-  border-right: solid 1px black; /* Ajout de la couleur pour le bord */
-  height: 120%; /* Spécifiez la hauteur pour que le bord soit visible */
+  border-right: solid 1px black;
+  /* Ajout de la couleur pour le bord */
+  height: 120%;
+  /* Spécifiez la hauteur pour que le bord soit visible */
   right: -100px;
   top: -50px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
   clip-path: inset(0px -15px 0px 0px);
 }
+
 figure img {
   margin: auto;
   padding: 4%;
 }
+
 .form {
   font-family: var(--font-regular);
   display: flex;
@@ -103,9 +115,11 @@ figure img {
   font-size: 1.3rem;
   gap: 5px;
 }
+
 .form label {
   font-family: var(--font-regular);
 }
+
 .form input {
   width: 80%;
   margin-top: 2%;
@@ -116,10 +130,12 @@ figure img {
   font-family: var(--font-regular);
   border: none;
 }
+
 .form input::placeholder {
   font-size: 0.9rem;
   font-family: var(--font-regular);
 }
+
 .inscription {
   padding-top: 1%;
   display: flex;
@@ -127,6 +143,7 @@ figure img {
   margin: auto;
   gap: 10px;
 }
+
 .inscription button {
   font-family: var(--font-regular);
   padding: 2%;
@@ -143,19 +160,24 @@ figure img {
   form {
     width: 30%;
   }
+
   form::after {
     display: none;
   }
 }
+
 @media (min-width: 1px) and (max-width: 1000px) {
   form {
     width: 80%;
     margin: auto;
     height: auto;
+    margin-top: 10%;
   }
+
   form::after {
     display: none;
   }
+
   .inscription {
     display: flex;
     flex-direction: column;
