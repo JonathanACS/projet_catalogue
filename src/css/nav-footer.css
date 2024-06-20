@@ -206,6 +206,21 @@ a {
     align-items: center;
   }
 
+  .container-nav ul {
+    color: black;
+    font-size: 20px;
+  }
+
+  .color-lien a {
+    font-size: 20px !important;
+    color: black !important;
+  }
+
+  .pseudo {
+    color: #dad3be;
+    font-size: 20px !important;
+  }
+
   .menu-nav li,
   .bonjour,
   .lien {
