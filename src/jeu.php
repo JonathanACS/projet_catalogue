@@ -50,26 +50,20 @@ if (isset($_GET["id"])) {
 
     <main>
         <div class="container-jeu">
-            <div class="img-text">
-                <div class="text">
-                    <p><?= $game["desc_game"]?></p>
-                </div>
-                <div class="img-1">
-                    <figure>
-                        <img class="img-size img-right-border" src="<?= $game["picture_right"]?>"
-                            alt="<?= $game["picture_right_alt"]?>">
-                    </figure>
-                </div>
+
+            <div class="img-1">
+                <figure>
+                    <img class="img-size" src="<?= $game["picture_right"]?>" alt="<?= $game["picture_right_alt"]?>">
+                </figure>
+            </div>
+            <div class="text">
+                <p><?= $game["desc_game"]?></p>
             </div>
             <div class="img-plateforme">
                 <div class="img-2">
                     <figure>
-                        <img class="img-size img-left-border" src="<?= $game["picture_left"]?>"
-                            alt="<?= $game["picture_left_alt"]?>">
+                        <img class="img-size" src="<?= $game["picture_left"]?>" alt="<?= $game["picture_left_alt"]?>">
                     </figure>
-                </div>
-                <div class="plateforme">
-                    <p></p>
                 </div>
             </div>
         </div>
