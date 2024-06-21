@@ -64,6 +64,10 @@ body {
     width: 99%;
   }
 
+  .titre-jeu-test {
+    font-size: 3REM;
+  }
+
   article {
     display: flex;
     flex-direction: column;

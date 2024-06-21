@@ -33,7 +33,7 @@
 
                 <?php else: ?>
 
-                <p class="bonjour">Bonjour <span class="pseudo"><?= ($_SESSION["user"]["pseudo"]) ?></span></p>
+                <li class="bonjour">Bonjour <span class="pseudo"><?= ($_SESSION["user"]["pseudo"]) ?></span></li>
                 <li class="color-lien"><a href="../deconnexion.php">Se déconnecter</a></li>
 
                 <?php if(isset($_SESSION["user"]["roles"]) && $_SESSION["user"]["roles"] === "ROLE_ADMIN"): ?>

@@ -170,115 +170,115 @@ if ($_POST) {
             <h1>Modifier un jeu</h1>
             <a class="btn btn-secondary p-2" href="#" onclick="history.go(-1)">Retour</a>
         </div>
-        <div class="container d-flex flex-wrap justify-content-center container-modif">
-            <div class="mw-25 w-50 p-2" style="width: 18rem;">
-                <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
-                <figure>
-                    <img src="<?= $game["picture_header"]?>" alt="<?= $game["picture_header_alt"]?>">
-                </figure>
-                <div class="d-flex justify-content-center">
-                    <img class="card picture-game-list-size" src="<?= $game["picture_left"] ?>"
-                        alt="<?= $game["picture_left_alt"]?>">
-                    <img class="card picture-game-list-size" src="<?= $game["picture_right"] ?>"
-                        alt="<?= $game["picture_right_alt"]?>">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-6 col-xl-6">
+                    <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
+                    <figure>
+                        <img src="<?= $game["picture_header"]?>" alt="<?= $game["picture_header_alt"]?>">
+                    </figure>
+                    <div class="d-flex justify-content-center">
+                        <img class="card picture-game-list-size" src="<?= $game["picture_left"] ?>"
+                            alt="<?= $game["picture_left_alt"]?>">
+                        <img class="card picture-game-list-size" src="<?= $game["picture_right"] ?>"
+                            alt="<?= $game["picture_right_alt"]?>">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text p-3"><?= $game["text_game"] ?></p>
+                    </div>
+                    <div class="card-body ms-3">
+                        <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text p-3"><?= $game["text_game"] ?></p>
-                </div>
-                <div class="card-body ms-3">
-                    <iframe width="600" height="315" src="<?= $game["trailler"]?>" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="col-sm-6 col-lg-6 col-xl-6">
+                    <form class="text-center" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="title_game">Titre du jeu</label>
+                                <input class="form-control text-center" type="text" id="title_game" name="title_game"
+                                    value="<?=$game['title_game']?>">
+                                <label class="form-label fw-bolder" for="trailler">Lien du
+                                    trailler</label>
+                                <input class="form-control  text-center" type="text" id="trailler" name="trailler"
+                                    value="<?=$game['trailler']?>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="picture_right">Lien image
+                                    droit</label>
+                                <input class="form-control text-center" type="file" id="picture_right"
+                                    name="picture_right" value="<?=$game['picture_right']?>">
+                                <label class="form-label fw-bolder" for="picture_right_alt">ALT image
+                                    droit</label>
+                                <input class="form-control text-center" type="text" id="picture_right_alt"
+                                    name="picture_right_alt" value="<?=$game['picture_right_alt']?>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="picture_left">Lien image
+                                    gauche</label>
+                                <input class="form-control text-center" type="file" id="picture_left"
+                                    name="picture_left" value="<?=$game['picture_left']?>">
+                                <label class="form-label fw-bolder" for="picture_left_alt">ALT image
+                                    gauche</label>
+                                <input class="form-control text-center" type="text" id="picture_left_alt"
+                                    name="picture_left_alt" value="<?=$game['picture_left_alt']?>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="picture_header">Lien image
+                                    header</label>
+                                <input class="form-control text-center" type="file" id="picture_header"
+                                    name="picture_header" value="<?=$game['picture_header']?>">
+                                <label class="form-label fw-bolder" for="picture_header_alt">ALT image
+                                    header</label>
+                                <input class="form-control text-center" type="text" id="picture_header_alt"
+                                    name="picture_header_alt" value="<?=$game['picture_header_alt']?>">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="desc_game">petit text</label>
+                                <textarea class="form-control" id="desc_game"
+                                    name="desc_game"><?=$game['desc_game']?></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label fw-bolder" for="text_game">long text</label>
+                                <textarea class="form-control" id="text_game"
+                                    name="text_game"><?=$game['text_game']?></textarea>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-label text-uppercase fw-bolder" for="pc">PC</label>
+                            <input class="form-check-input" type="checkbox" id="pc" name="pc"
+                                <?=$plateforme['pc'] ? 'checked' : ''?>><br>
+                            <label class="form-label text-uppercase fw-bolder" for="playstation">PlayStation</label>
+                            <input class="form-check-input" type="checkbox" id="playstation" name="playstation"
+                                <?=$plateforme['playstation'] ? 'checked' : ''?>><br>
+                            <label class="form-label text-uppercase fw-bolder" for="xbox">Xbox</label>
+                            <input class="form-check-input" type="checkbox" id="xbox" name="xbox"
+                                <?=$plateforme['xbox'] ? 'checked' : ''?>><br>
+                            <label class="form-label text-uppercase fw-bolder" for="switch">Switch</label>
+                            <input class="form-check-input" type="checkbox" id="switch" name="switch"
+                                <?=$plateforme['switch'] ? 'checked' : ''?>>
+                            <input type="hidden" name="id_game" value="<?=$plateforme["id_game"]?>">
+                            <input type="hidden" name="id_plateforme" value="<?=$plateforme["id_plateforme"]?>">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-secondary p-2">Modifier</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <form class="text-center w-50 mw-25" method="post" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="title_game">Titre du jeu</label>
-                        <input class="form-control text-center" type="text" id="title_game" name="title_game"
-                            value="<?=$game['title_game']?>">
-                        <label class="form-label fw-bolder" for="trailler">Lien du
-                            trailler</label>
-                        <input class="form-control  text-center" type="text" id="trailler" name="trailler"
-                            value="<?=$game['trailler']?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="picture_right">Lien image
-                            droit</label>
-                        <input class="form-control text-center" type="file" id="picture_right" name="picture_right"
-                            value="<?=$game['picture_right']?>">
-                        <label class="form-label fw-bolder" for="picture_right_alt">ALT image
-                            droit</label>
-                        <input class="form-control text-center" type="text" id="picture_right_alt"
-                            name="picture_right_alt" value="<?=$game['picture_right_alt']?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="picture_left">Lien image
-                            gauche</label>
-                        <input class="form-control text-center" type="file" id="picture_left" name="picture_left"
-                            value="<?=$game['picture_left']?>">
-                        <label class="form-label fw-bolder" for="picture_left_alt">ALT image
-                            gauche</label>
-                        <input class="form-control text-center" type="text" id="picture_left_alt"
-                            name="picture_left_alt" value="<?=$game['picture_left_alt']?>">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="picture_header">Lien image
-                            header</label>
-                        <input class="form-control text-center" type="file" id="picture_header" name="picture_header"
-                            value="<?=$game['picture_header']?>">
-                        <label class="form-label fw-bolder" for="picture_header_alt">ALT image
-                            header</label>
-                        <input class="form-control text-center" type="text" id="picture_header_alt"
-                            name="picture_header_alt" value="<?=$game['picture_header_alt']?>">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="desc_game">petit text</label>
-                        <textarea class="form-control" id="desc_game"
-                            name="desc_game"><?=$game['desc_game']?></textarea>
-
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label fw-bolder" for="text_game">long text</label>
-                        <textarea class="form-control" id="text_game"
-                            name="text_game"><?=$game['text_game']?></textarea>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <label class="form-label text-uppercase fw-bolder" for="pc">PC</label>
-                    <input class="form-check-input" type="checkbox" id="pc" name="pc"
-                        <?=$plateforme['pc'] ? 'checked' : ''?>><br>
-                    <label class="form-label text-uppercase fw-bolder" for="playstation">PlayStation</label>
-                    <input class="form-check-input" type="checkbox" id="playstation" name="playstation"
-                        <?=$plateforme['playstation'] ? 'checked' : ''?>><br>
-                    <label class="form-label text-uppercase fw-bolder" for="xbox">Xbox</label>
-                    <input class="form-check-input" type="checkbox" id="xbox" name="xbox"
-                        <?=$plateforme['xbox'] ? 'checked' : ''?>><br>
-                    <label class="form-label text-uppercase fw-bolder" for="switch">Switch</label>
-                    <input class="form-check-input" type="checkbox" id="switch" name="switch"
-                        <?=$plateforme['switch'] ? 'checked' : ''?>>
-                    <input type="hidden" name="id_game" value="<?=$plateforme["id_game"]?>">
-                    <input type="hidden" name="id_plateforme" value="<?=$plateforme["id_plateforme"]?>">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-secondary p-2">Modifier</button>
-                </div>
-            </form>
         </div>
     </section>
     <script src="../script.js"></script>

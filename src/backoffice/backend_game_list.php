@@ -22,7 +22,6 @@ $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,7 +34,6 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <link href="../css/nav-footer.css" rel="stylesheet">
     <link href="../css/backend.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -68,7 +66,6 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             }
         ?>
 
-        <!-- Idea blur effect on hover (or focus) when we put the mouse on a game then show "modif" and "delete"-->
         <div class="row d-flex justify-content-center">
 
             <?php foreach($result as $game): ?>
