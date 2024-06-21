@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : ven. 21 juin 2024 à 09:09
+-- Généré le : ven. 21 juin 2024 à 11:41
 -- Version du serveur : 8.0.37
 -- Version de PHP : 8.2.8
 
@@ -92,10 +92,10 @@ INSERT INTO `plateforme` (`id_plateforme`, `id_game`, `title_game`, `pc`, `plays
 (27, 66, 'pokemon ecarlate et violet', 0, 0, 0, 1),
 (28, 67, 'the last of us part I', 1, 1, 0, 0),
 (29, 68, 'elden ring', 1, 1, 1, 0),
-(30, 69, '8', 1, 1, 1, 0),
-(31, 70, '9', 1, 1, 1, 0),
-(32, 71, '10', 1, 1, 1, 1),
-(33, 72, '11', 1, 1, 1, 1),
+(30, 69, 'Spiderman', 1, 1, 1, 0),
+(31, 70, 'Grand Theft Auto V', 1, 1, 1, 0),
+(32, 71, 'Prince of Persia', 1, 1, 1, 1),
+(33, 72, 'One piece', 1, 1, 1, 1),
 (36, 75, 'Overwatch 2', 1, 1, 1, 1),
 (37, 76, 'Minecraft', 1, 1, 1, 1),
 (38, 77, 'Splatoon 3', 0, 0, 0, 1),
