@@ -177,7 +177,7 @@ if ($_POST) {
             <a class="btn btn-secondary p-10" href="#" onclick="history.go(-1)">Retour</a>
         </div>
         <div class="d-flex justify-content-center">
-            <form method="post" enctype="multipart/form-data">
+            <form class="text-center" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col">
                         <label class="form-label" for="title_game">Titre du jeu</label>
