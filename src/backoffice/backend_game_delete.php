@@ -44,6 +44,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     // Récupération des chemins des images à supprimer
     $picture_right = $result['picture_right'];
     $picture_left = $result['picture_left'];
+    $picture_header = $result['picture_header'];
 
     // Suppression des images si elles existent
     if (!empty($picture_right) && file_exists($picture_right)) {
@@ -51,6 +52,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
     if (!empty($picture_left) && file_exists($picture_left)) {
         if (unlink($picture_left));}
+
+    if (!empty($picture_header) && file_exists($picture_header)) {
+        if (unlink($picture_header));}
 
     // Suppression de l'entrée dans la base de données
     $sql_delete = "DELETE FROM `jeux` WHERE `id_game` = :id_game;";

@@ -172,7 +172,7 @@ if ($_POST) {
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-xl-6 col-lg-6 col-sm-6">
+                <div class="col-sm-6 col-lg-6 col-xl-6">
                     <h5 class="card-title text-center p-3"><?= $game["title_game"] ?></h5>
                     <figure>
                         <img src="<?= $game["picture_header"]?>" alt="<?= $game["picture_header_alt"]?>">
@@ -193,7 +193,7 @@ if ($_POST) {
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6 col-lg-6 col-sm-6">
+                <div class="col-sm-6 col-lg-6 col-xl-6">
                     <form class="text-center" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col">
